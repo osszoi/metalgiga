@@ -1,0 +1,272 @@
+.table {
+  background-color: #fff;
+  border-collapse: initial;
+
+  & > tbody + tbody {
+    border-width: 1px;
+  }
+
+  &.table-without-counters {
+    tbody:last-child tr td {
+      border-bottom: none;
+    }
+  }
+
+  &.table-last-borderless {
+    tbody:last-child tr:last-child td {
+      border-bottom: none;
+    }
+  }
+
+  tr.dndPlaceholder td {
+    background-color: darken($gray-bg, 20%);
+    height: 60px;
+  }
+
+  tr[draggable] {
+
+  }
+
+  &.table-info {
+    thead {
+      th {
+
+      }
+    }
+  }
+
+  .table-map {
+    width: 100% !important;
+    height: 150px !important;
+  }
+
+  thead,
+  thead tr {
+    &.ng-table-filters th {
+      background-color: $table-bg-active;
+      padding: 10px 5px;
+    }
+
+    th {
+      background-color: #fff;
+      text-align: center;
+      border-bottom: none;
+      font-size: 95%;
+      padding-top: 15px;
+      padding-bottom: 15px;
+
+      .input-filter,
+      .filter-select {
+        min-width: 120px;
+      }
+    }
+  }
+
+  tbody tr {
+    td {
+      color: $table-text-color;
+      border-top: none;
+
+      &.bold,
+      &.strong,
+      span.bold,
+      span.strong,
+      p.bold,
+      p.strong,
+      div.bold,
+      div.strong,
+      strong {
+        color: $text-color;
+      }
+
+      &.component-img {
+        width: 50px;
+        img {
+          width: 50px;
+        }
+      }
+
+      &.table-button {
+        text-align: center;
+        padding: 5px;
+      }
+    }
+  }
+
+  .sub-table-frame {
+    min-height: 90px;
+    padding: 2px;
+    box-shadow: inset 0 0 0px 2px $brand-secundary;
+
+    .sub-table-frame {
+      padding: 0;
+      box-shadow: none;
+      border-top: solid 2px $brand-secundary;
+      border-bottom: solid 2px $brand-secundary;
+    }
+
+    // Last tr of .sub-table-frame > .sub-table-frame
+    tr:last-child .sub-table-frame {
+      border-bottom: none;
+    }
+
+    .table {
+      background-color: #fff;
+      &.table-info {
+        thead {
+          th {
+            padding: 10px;
+          }
+        }
+      }
+    }
+
+    .table-numeration {
+
+    }
+
+    &:hover {
+
+    }
+
+    td {
+
+    }
+
+    @include table-row-variant('active', darken($table-bg-active, 4%));
+    @include table-row-variant('success', lighten($state-success-bg, 15%));
+    @include table-row-variant('info', $state-info-bg);
+    @include table-row-variant('warning', lighten($state-warning-bg, 10%));
+    @include table-row-variant('danger', lighten($state-danger-bg, 10%));
+  }
+
+  .table-numeration {
+    text-align: center;
+    font-size: 75%;
+    font-weight: bold;
+    vertical-align: middle;
+    max-width: 60px !important;
+  }
+
+  .table-new-row {
+    td.table-status {
+      background-color: $brand-secundary;
+      color: #fff;
+    }
+
+    td.table-numeration {
+      background-color: $table-bg-new;
+      color: $text-muted;
+    }
+
+    td {
+      text-align: center;
+      background-color: $table-bg-new;
+    }
+
+    td input[type="text"],
+    td textarea,
+    td select {
+      min-width: 120px;
+    }
+
+    td input[type="number"] {
+      min-width: 90px;
+    }
+
+    .uib-timepicker {
+      td input {
+        min-width: auto;
+      }
+    }
+  }
+
+  td, th {
+    vertical-align: middle !important;
+  }
+}
+
+div[ng-table-pagination] {
+  border-top: none;
+  @include clearfix();
+
+  .ng-table-custom-pagination {
+    &.hide-pagination {
+      display: none;
+    }
+  }
+
+  .pagination {
+    padding: 10px;
+    display: block;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  .ng-table-counts {
+
+  }
+}
+
+.table-frame {
+  background-color: #FFF;
+  //margin: $line-height-computed / 2;
+  min-height: 90px;
+
+  .table {
+    margin: 0;
+    tbody tr:last-child td,
+    tfoot tr:last-child td {
+
+    }
+  }
+
+  div[ng-table-pagination] {
+    border: none;
+  }
+}
+
+.uib-timepicker {
+  tbody tr td {
+    border-bottom: none !important;
+  }
+}
+
+.table-responsive {
+  min-height: 0.01%;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  // Tighten up spacing
+  > .table {
+    margin-bottom: 0;
+
+    // Ensure the content doesn't wrap
+    > tbody,
+    > tfoot {
+      > tr {
+        > td.row-textarea {
+          min-width: 220px;
+          text-align: left;
+        }
+      }
+    }
+
+    > thead {
+      > tr {
+        > th,
+        > td {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}
+
+@include table-row-variant('active', darken($table-bg-active, 4%));
+@include table-row-variant('success', lighten($state-success-bg, 15%));
+@include table-row-variant('info', $state-info-bg);
+@include table-row-variant('warning', lighten($state-warning-bg, 10%));
+@include table-row-variant('danger', lighten($state-danger-bg, 10%));

@@ -1,0 +1,94 @@
+.cg-busy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+
+  .busy-spinner {
+    background: url('../images/logo.svg');
+    background-position: 12px 25px;
+    background-repeat: no-repeat;
+    background-size: 100px;
+    display: inline-block;
+
+    .fa {
+      font-size: 56px;
+      color: #333;
+    }
+  }
+}
+
+.cg-busy-animation.ng-hide-add,
+.cg-busy-animation.ng-hide-remove {
+  transition: all 0.3s ease;
+  display: block !important;
+}
+
+.cg-busy-animation.ng-hide-remove {
+  opacity: 0;
+  transform: translate(0, -40px);
+}
+
+.cg-busy-animation.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.cg-busy-animation.ng-hide-add {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.cg-busy-animation.ng-hide-add.ng-hide-add-active {
+  opacity: 0;
+  transform: translate(0, -40px);
+}
+
+.cg-busy-backdrop {
+  background-color: lighten($brand-primary, 50%);
+  opacity: 0.95;
+}
+
+.cg-busy-backdrop-animation.ng-hide-add,
+.cg-busy-backdrop-animation.ng-hide-remove {
+  transition: opacity 0.3s ease;
+  display: block !important;
+}
+
+.cg-busy-backdrop-animation.ng-hide {
+  opacity: 0;
+}
+
+/* All styles below are for the default template. */
+.busy-wrapper {
+  text-align: center;
+  color: #333;
+  position: relative;
+
+  .busy-message {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: calc(50% - 10px);
+  }
+}
+
+.cg-saving {
+  overflow-y: hidden;
+}
+
+// Specific styles for each component in order to match their background
+.modal-body {
+  .cg-busy-backdrop {
+    background-color: #fff;
+  }
+}
+
+// Set min height for containers in order to display the busy properly
+subjects-view {
+  & > div {
+    min-height: 200px;
+  }
+}

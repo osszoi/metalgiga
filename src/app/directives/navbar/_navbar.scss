@@ -1,0 +1,109 @@
+.navbar {
+  height: $navbar-height !important;
+  min-height: 0px !important;
+  //max-height: $navbar-height !important;
+  background-color: #111;
+  // background: url(../images/navbar-bg.png);
+  // background-size: cover;
+  // background-position: center center;
+  border: none;
+  border-bottom: 4px solid $footer-bg-color !important;
+  margin-bottom: 0px !important;
+  // margin-left: -1px;
+
+  &.navbar-fixed-top {
+    border: none;
+  }
+
+  .navbar-right {
+    & > li {
+      height: $navbar-height;
+
+      & > a {
+        height: $navbar-height;
+        line-height: $font-size-small * 2;
+        font-size: $font-size-small * 1.1;
+        color: #fefefe !important;
+
+        text-transform: uppercase;
+
+        &.active {
+          //background-color: darken($brand-primary, 10%);
+
+          .text-underline-effect {
+            height: 5px;
+            width: 100%;
+            border-radius: 5px;
+            //background-color: $brand-primary;
+            background: linear-gradient(
+              to right,
+              $brand-primary 10%,
+              lighten($brand-primary, 30%),
+              $brand-primary 90%
+            );
+          }
+        }
+
+        &:focus {
+          background-color: transparent;
+          outline: none;
+          border: none;
+        }
+
+        &[aria-expanded='true'] {
+          color: $brand-primary !important;
+        }
+
+        &:hover {
+          color: lighten($brand-primary, 10%) !important;
+          background-color: transparent !important;
+        }
+      }
+    }
+  }
+
+  .navbar-header {
+    display: flex;
+    align-items: center;
+    margin-left: -($grid-gutter-width / 2);
+  }
+
+  .navbar-brand {
+    margin: 0;
+    margin-top: 5px;
+    padding: 5px 10px;
+    img {
+      height: 35px;
+    }
+  }
+
+  .profile-pic {
+    float: left;
+    display: inline-block;
+    margin-right: 8px;
+    height: 30px;
+    width: 30px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+  }
+
+  .container-fluid:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .languages {
+    background-color: red;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.navbar-aside {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

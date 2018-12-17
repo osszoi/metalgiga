@@ -1,0 +1,45 @@
+#toast-container .toast {
+  box-shadow: none;
+  border-radius: 2px;
+  padding: 15px 15px 15px 70px;
+}
+
+#toast-container .toast:hover {
+  box-shadow: none;
+  background-color: rgba(#fff, 0.95);
+}
+
+progress-bar {
+  height: 4px;
+  background-color: $brand-secundary;
+  opacity: 1;
+}
+
+.toast {
+  min-height: 70px;
+  background-blend-mode: exclusion;
+
+  background-color: #fafafa;
+  border-style: solid;
+  border-width: 3px 3px 3px 10px;
+
+  * {
+    color: #111 !important;
+  }
+}
+
+.toast-success {
+  border-color: $brand-success;
+}
+
+.toast-error {
+  border-color: $brand-danger;
+}
+
+.toast-info {
+  border-color: $brand-info;
+}
+
+.toast-warning {
+  border-color: $brand-warning;
+}

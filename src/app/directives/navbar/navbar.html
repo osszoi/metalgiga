@@ -1,0 +1,91 @@
+<nav class="navbar navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button
+        type="button"
+        class="navbar-toggle margin-xl-right"
+        data-toggle="collapse"
+        data-target="#navbar"
+        aria-expanded="false"
+        aria-controls="navbar"
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span> <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <img
+        class="navbar-brand pointer"
+        src="images/logo.png"
+        alt="MetalGiga"
+        title="MetalGiga"
+        ui-sref="home"
+      />
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a
+            ng-class="{ 'active': $ctrl.currentlyAt == 'home' }"
+            href=""
+            ui-sref="home"
+          >
+            Inicio
+            <div class="text-underline-effect"></div>
+          </a>
+        </li>
+
+        <li>
+          <a
+            ng-class="{ 'active': $ctrl.currentlyAt == 'products' }"
+            href=""
+            ui-sref="products"
+          >
+            Productos
+            <div class="text-underline-effect"></div>
+          </a>
+        </li>
+
+        <li>
+          <a
+            ng-class="{ 'active': $ctrl.currentlyAt == 'orders' }"
+            href=""
+            ui-sref="orders"
+            class="click-disabled"
+          >
+            Galería
+            <div class="text-underline-effect"></div>
+          </a>
+        </li>
+
+        <li>
+          <a
+            ng-class="{ 'active': $ctrl.currentlyAt == 'contact' }"
+            href=""
+            ui-sref="contact"
+            class="click-disabled"
+          >
+            Contacto
+            <div class="text-underline-effect"></div>
+          </a>
+        </li>
+
+        <li class="margin-sm-left">
+          <a
+            ng-class="{ 'active': $ctrl.currentlyAt == 'contact' }"
+            href=""
+            ui-sref="contact"
+            class="click-disabled"
+          >
+            <span class="bordered padding-sm-tb padding-lr">
+              <i class="fa fa-fw fa-globe"></i> ES
+              <i class="fa fa-fw fa-caret-down"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- <div class="languages"><i class="fa fa-fw fa-globe"></i> ES</div> -->
+</nav>

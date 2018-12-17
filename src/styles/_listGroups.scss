@@ -1,0 +1,7 @@
+.list-group {
+  .list-group-item {
+    &:hover:not(.active) {
+      background-color: $gray-bg;
+    }
+  }
+}

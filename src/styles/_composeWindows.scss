@@ -1,0 +1,103 @@
+#composeWindowContainer {
+  bottom: 0;
+  right: 0;
+  min-width: 100vw;
+  height: 100vh;
+  overflow-x: auto;
+  position: fixed;
+  z-index: 99;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  .modal {
+    pointer-events: auto;
+    margin: 0px;
+    max-height: calc(100vh - 50px) !important;
+    bottom: auto !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    position: static !important;
+    z-index: 3000;
+
+    width: $modal-md;
+    &.compose-sm {
+      width: $modal-sm !important;
+    }
+    &.compose-md {
+      width: $modal-md !important;
+    }
+    &.compose-lg {
+      width: $modal-lg !important;
+    }
+    &.compose-xl {
+      width: $modal-xl !important;
+    }
+
+    &.compose-minimized {
+      width: 180px !important;
+
+      .modal-title {
+        max-width: 60px;
+        height: 25px;
+        overflow: hidden;
+      }
+    }
+
+    &:first-child {
+      margin-right: 10px;
+    }
+
+    .modal-content {
+      overflow: hidden;
+    }
+
+    .modal-dialog {
+      /* Set the same as on vendors/ui-bootstrpa-tpls.js */
+      width: calc(100% - 20px);
+
+      .modal-header {
+        border-bottom: none;
+        color: #eee;
+        background-color: $gray-darker;
+        padding: 10px 10px 10px 15px;
+
+        .modal-title {
+          font-size: $font-size-large;
+        }
+
+        .btn-group {
+          display: block;
+        }
+
+        button.btn {
+          padding: 5px 8px;
+          font-size: 8px;
+          background-color: $gray-darker;
+          border-color: lighten($gray-darker, 15%);
+          color: lighten($gray-darker, 40%);
+
+          &:focus,
+          &:hover {
+            background-color: lighten($gray-darker, 10%);
+            color: lighten($gray-darker, 50%);
+          }
+        }
+
+      }
+
+      .modal-footer {
+        button {
+          // padding: 3px 10px;
+          // font-size: $font-size-small;
+        }
+      }
+
+      .modal-body {
+        max-height: calc(100vh - 200px);
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+$facebook-color: rgba(59, 89, 152, 1);
+$google-color: rgba(221, 75, 57, 1);
+
+.btn-facebook {
+  background-color: $facebook-color;
+  color: white;
+}
+
+.btn-google {
+  background-color: $google-color;
+}
+
+[class*='btn-facebook'],
+[class*='btn-google'] {
+  font-size: 16px;
+  color: white;
+
+  &:hover {
+    color: #ddd;
+  }
+}

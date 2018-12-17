@@ -1,0 +1,37 @@
+<div class="pl-typeahead form-group hug"
+     ng-class="{ 'has-error': !isValid, 'has-warning': pendingToAdd }">
+  <div ng-class="{ 'input-group': allowNewEntries && entry && !entry.id }">
+    <!-- Input typeahead -->
+    <input type="text"
+           class="form-control"
+           name="plTypeahead"
+           id="plTypeahead"
+           placeholder="{{ placeholder }}"
+           ng-model="entry"
+           uib-typeahead="item as getAsValue(item) for item in list({ value: $viewValue })"
+           typeahead-show-hint="true"
+           typeahead-min-length="minLength"
+           typeahead-editable="allowNewEntries || false"
+           typeahead-append-to-body="true"
+           typeahead-no-results="noResults"
+           ng-required="required"
+           typeahead-on-select="onSelect({ $item: $item, $model: $model, $label: $label, $event: $event })"
+           ng-change="change()"
+           select-on-focus>
+    <!-- /Input typeahead -->
+
+    <!-- Button to create a new entry -->
+    <span class="input-group-btn"
+          ng-if="allowNewEntries && entry && !entry.id">
+      <button class="btn"
+              ng-class="{ 'btn-primary': !pendingToAdd, 'btn-warning': pendingToAdd }"
+              type="button"
+              ng-click="create({ value: entry })"
+              uib-tooltip="Save this new value"
+              tooltip-append-to-body="true">
+        <i class="fa fa-plus"></i>
+      </button>
+    </span>
+    <!-- /Button to create a new entry -->
+  </div>
+</div>

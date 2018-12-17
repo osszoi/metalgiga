@@ -1,0 +1,49 @@
+login {
+  .container {
+    padding-top: 50px;
+    width: 100vw;
+    min-height: 100vh;
+    background: $login-bg;
+    //background-size: $login-bg-size;
+    background-repeat: no-repeat;
+    background-position: left top, right top;
+    background-size: 100vw, 30vw, 50vw;
+  }
+
+  .panel {
+    padding: 20px;
+
+    .row {
+      @media (min-width: 768px) {
+        [class*='col-']:first-child {
+          border-right: 2px solid lighten($brand-secundary, 30%);
+          padding-right: 15px;
+        }
+
+        [class*='col-']:last-child {
+          padding-left: 15px;
+
+          p {
+            margin-top: 55px;
+          }
+        }
+      }
+
+      @media (max-width: 768px) {
+        [class*='col-']:last-child {
+          button:first-of-type {
+            margin-top: 25px;
+          }
+        }
+      }
+    }
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  h2 {
+    border-bottom: 4px solid lighten($brand-secundary, 30%);
+  }
+}

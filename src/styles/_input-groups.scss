@@ -1,0 +1,21 @@
+$small-input-size: 20%;
+
+.input-group {
+  width: 100%;
+
+  div:first-child .form-control {
+    border-radius: $input-border-radius !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    width: $small-input-size !important;
+    float: left;
+  }
+
+  div:last-child .form-control {
+    border-radius: $input-border-radius !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    width: 100% - $small-input-size !important;
+    float: left;
+  }
+}

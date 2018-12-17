@@ -1,0 +1,15 @@
+<div class="busy-wrapper">
+  <div class="busy-message">
+    <!-- <div class="busy-spinner">
+      <i class="fa fa-spin fa-circle-o-notch"></i>
+    </div> -->
+    <!-- <i class="fa fa-fw fa-superscript fa-2x"></i> -->
+    <img ng-src="images/logo.svg"
+         title="Dawere"
+         width="200px">
+    <p class="margin-sm-top"
+       ng-if="$message">
+      <i class="fa fa-spin fa-spinner"></i> {{ $message }}
+    </p>
+  </div>
+</div>

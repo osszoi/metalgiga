@@ -1,0 +1,114 @@
+.products {
+  background-image: url(https://img00.deviantart.net/691d/i/2013/230/c/1/beach_at_night_by_myraalex-d6iot9k.jpg);
+  background-repeat: no-repeat;
+  background-size: 100vw 2000px;
+  min-height: 100vh;
+  padding: 50px 10px;
+
+  .category {
+    text-align: left;
+    letter-spacing: 2px;
+    padding: 10px 40px;
+    background-color: $brand-primary;
+    color: #eee;
+    transition: 0.15s linear background-color;
+
+    &:nth-child(even) {
+      border-top: 1px solid darken($brand-primary, 20%);
+      border-bottom: 1px solid darken($brand-primary, 20%);
+    }
+
+    &:last-child {
+      border-top: none;
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: darken($brand-primary, 10%);
+    }
+
+    &.selected {
+      background-color: darken($brand-primary, 25%);
+    }
+  }
+
+  .subcategory {
+    text-align: left;
+    letter-spacing: 2px;
+    //text-transform: uppercase;
+    padding: 10px 40px;
+    $subcategory-color: lighten($brand-primary, 45%);
+    background-color: rgba(
+      rgb(
+        red($subcategory-color),
+        green($subcategory-color),
+        blue($subcategory-color)
+      ),
+      0.75
+    );
+    color: #333;
+    font-weight: bold;
+    //transition: 0.15s linear background-color;
+
+    &:nth-child(even) {
+      border-top: 1px solid darken($brand-primary, 20%);
+      border-bottom: 1px solid darken($brand-primary, 20%);
+    }
+
+    &:last-child {
+      border-top: none;
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: darken($brand-primary, 10%);
+      color: #eee;
+    }
+
+    &.selected {
+      background-color: rgba(
+        rgb(
+          red($subcategory-color),
+          green($subcategory-color),
+          blue($subcategory-color)
+        ),
+        1
+      );
+      color: #333;
+    }
+  }
+
+  .description {
+    $description-color: darken($brand-primary, 35%);
+    background-color: rgba(
+      rgb(
+        red($description-color),
+        green($description-color),
+        blue($description-color)
+      ),
+      0.75
+    );
+    color: #eee;
+
+    h2 {
+      font-size: 48px;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 20px;
+      margin-top: 30px;
+
+      @media (min-width: 768px) {
+        padding-right: 40px;
+      }
+    }
+
+    img {
+      border: 1px solid lighten($brand-primary, 20%);
+      border-radius: 4px;
+      border-top-right-radius: 30px;
+      border-bottom-left-radius: 30px;
+    }
+  }
+}

@@ -1,0 +1,149 @@
+// Modal sizes
+@for $i from 10 through 100 {
+  .modal-#{$i}p {
+    width: $i * 1%;
+  }
+}
+
+// Full modal
+.modal-full {
+  width: 100%;
+  height: 100%;
+
+  &.modal-dialog {
+    margin: 0;
+    padding: 0;
+  }
+
+  .modal-content {
+    height: 100%;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0;
+    //overflow-y: hidden;
+  }
+
+  form {
+    height: 100%;
+  }
+
+  .modal-body {
+    height: calc(100vh - 65px - 55px) !important;
+    max-height: calc(100vh - 65px - 56px) !important;
+  }
+
+  .modal-header {
+    border-radius: 0;
+  }
+}
+
+.modal-header {
+  background-color: $modal-header-bg;
+  color: #c9d2dc;
+  border-top-left-radius: $border-radius-base;
+  border-top-right-radius: $border-radius-base;
+  border-bottom: none;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: normal;
+  }
+
+  &[ng-click] {
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.modal-body {
+  overflow-y: auto;
+
+  min-height: 130px;
+
+  @media screen and (min-height: 460px) {
+    // Laptop
+    max-height: calc(100vh - 170px);
+  }
+
+  @media screen and (min-height: 945px) {
+    // HD
+    max-height: 730px;
+  }
+
+  // Remove responsiveness
+  .table-responsive {
+    min-height: 0.01%;
+    width: 100%;
+    overflow-y: inherit;
+    overflow-x: inherit;
+  }
+}
+
+.modal-footer {
+  padding: 7px 10px;
+  background: #fff;
+  border-bottom-left-radius: $border-radius-base;
+  border-bottom-right-radius: $border-radius-base;
+}
+
+// Compose modal
+.modal[size*='compose'] {
+  position: absolute;
+  top: auto;
+  left: auto;
+  bottom: 0;
+  overflow: hidden;
+
+  // When fading in the modal, animate it to slide down
+  &.fade .modal-dialog {
+    @include translate(0, 25%);
+    @include transition-transform(0.3s ease-out);
+  }
+  &.in .modal-dialog {
+    @include translate(0, 0);
+  }
+}
+
+.modal-dialog[class*='compose'] {
+  height: 100%;
+
+  @media (min-width: $screen-sm-min) {
+    &.sm {
+      width: $modal-sm;
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
+    &.lg {
+      width: $modal-lg;
+    }
+  }
+
+  &.modal-dialog {
+    margin: 10px 10px 0;
+    padding: 0;
+  }
+
+  .modal-content {
+    height: 100%;
+    border-bottom: none;
+    @include box-shadow(0 -3px 9px 0 rgba(0, 0, 0, 0.2));
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  form {
+    height: 100%;
+  }
+}
+
+.close {
+  color: #ededed !important;
+  text-shadow: none;
+  opacity: 1;
+}

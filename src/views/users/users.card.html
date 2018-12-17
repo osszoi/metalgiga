@@ -1,0 +1,15 @@
+<div class="margin-bottom pointer user-card">
+  <i class="fa fa-fw fa-user fa-4x centered"></i>
+  <!-- // To do: Standardize names -->
+
+  <div class="bg-image {{ $ctrl.data.bgClass || 'blue' }}"></div>
+
+  <div class="padding-lr padding-lg-bottom padding-top flex flex-column justify-content-around">
+    <div>
+      <h4 class="hug text-center flex justify-content-center">
+        <span>{{ $ctrl.data.name }}</span>
+      </h4>
+      <p class="margin-lg-bottom text-center margin-sm-top">{{ $ctrl.data.period }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+root {
+  position: absolute;
+  display: block;
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  // background-color: $footer-bg-color;
+
+  .convexe-arc {
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    height: $arc-height;
+    margin-top: -$arc-height;
+  }
+}

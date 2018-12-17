@@ -1,0 +1,333 @@
+<div class="fw home">
+  <div class="bg-image"></div>
+
+  <div
+    class="full-view flex justify-content-center align-items-center flex-column"
+  >
+    <p class="main-title text-white font-metalgiga-4">
+      Bienvenidos a MetalGiga
+    </p>
+    <p class="main-subtitle text-center font-metalgiga-1" id="homeActor"></p>
+
+    <script>
+      var theater = theaterJS({
+        minSpeed: 50,
+        maxSpeed: 200
+      });
+
+      theater
+        .addActor('homeActor', {
+          accuracy: 1
+        })
+        .addScene(
+          'homeActor:Lorem ipsum dolor sit amet consectetur <span class="text-success">consectetur</span> adipisicing elit'
+        )
+        .addScene(3000)
+        .addScene(
+          'homeActor:Tenetur ratione tempore odit modi, <span class="text-info">unde temporibus excepturi architecto dicta!</span>'
+        )
+        .addScene(3000)
+        .addScene(theater.replay);
+    </script>
+  </div>
+
+  <div class="fw padding-tb bg-light-gray">
+    <div class="container">
+      <div class="row padding-xxl-tb">
+        <div class="col-sm-12">
+          <div
+            class="fw padding-lg-tb flex flex-column justify-content-center align-items-center bordered"
+          >
+            <h1 class="font-sm uppercase letter-space-sm">
+              <h5
+                class="margin-sm-bottom font-lg uppercase letter-space-sm font-metalgiga-5"
+              >
+                Metalgiga en Números
+              </h5>
+              <div class="title-underline-primary"></div>
+            </h1>
+
+            <h3 class="font-metalgiga-4 font-light margin-lg-bottom">
+              Nuestras estadísticas
+            </h3>
+
+            <div class="row fw margin-bottom">
+              <div class="col-sm-3">
+                <div
+                  class="flex flex-column justify-content-center align-items-center"
+                >
+                  <p
+                    class="bold font-xxxxl hug-bottom font-metalgiga-7 text-primary"
+                  >
+                    50
+                  </p>
+                  <p class="margin-sm-bottom text-primary font-lg">
+                    Años de experiencia
+                  </p>
+                  <i class="far fa-fw fa-calendar-check fa-2x text-primary"></i>
+                </div>
+              </div>
+
+              <div class="col-sm-3">
+                <div
+                  class="flex flex-column justify-content-center align-items-center"
+                >
+                  <p
+                    class="bold font-xxxxl hug-bottom font-metalgiga-7 text-primary"
+                  >
+                    6
+                  </p>
+                  <p class="margin-sm-bottom text-primary font-lg">Sedes</p>
+                  <i class="fa fa-fw fa-warehouse fa-2x text-primary"></i>
+                </div>
+              </div>
+
+              <div class="col-sm-3">
+                <div
+                  class="flex flex-column justify-content-center align-items-center"
+                >
+                  <p
+                    class="bold font-xxxxl hug-bottom font-metalgiga-7 text-primary"
+                  >
+                    1k
+                  </p>
+                  <p class="margin-sm-bottom text-primary font-lg">
+                    Máx de 1000 empleados
+                  </p>
+                  <i class="fa fa-fw fa-users fa-2x text-primary"></i>
+                </div>
+              </div>
+
+              <div class="col-sm-3">
+                <div
+                  class="flex flex-column justify-content-center align-items-center"
+                >
+                  <p
+                    class="bold font-xxxxl hug-bottom font-metalgiga-7 text-primary"
+                  >
+                    30+
+                  </p>
+                  <p class="margin-sm-bottom text-primary font-lg">
+                    Más de 30 clientes
+                  </p>
+                  <i class="fa fa-fw fa-chart-line fa-2x text-primary"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fw padding-tb bg our-company text-white">
+    <div class="container">
+      <div class="row padding-xxl-tb">
+        <div class="col-sm-12">
+          <div
+            class="fw padding-lg-tb flex flex-column justify-content-center align-items-center bordered"
+          >
+            <h1 class="font-sm uppercase letter-space-sm">
+              <h5
+                class="margin-sm-bottom font-lg uppercase letter-space-sm font-metalgiga-5"
+              >
+                ¿quiénes somos?
+              </h5>
+              <div class="title-underline-primary"></div>
+            </h1>
+
+            <h3 class="font-metalgiga-3">Nuestra empresa</h3>
+            <p>
+              Somos una empresa de capital 100% venezolano, con mas de 50 años
+              en el mercado brindándole soluciones integrales a nuestros
+              clientes a través de la transformación del metal en el sector de
+              metalmecánico.
+            </p>
+            <p
+              class="text-center hug-top margin-bottom font-metalgiga-5 font-xl"
+            >
+              1967 - 2018
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fw padding-tb bg-light-gray clients">
+    <div class="container">
+      <div class="row padding-xxl-tb">
+        <div class="col-sm-12 margin-xl-bottom">
+          <h1 class="font-sm uppercase letter-space-sm">
+            <h5
+              class="margin-sm-bottom font-lg uppercase letter-space-sm text-center hug-top font-metalgiga-5"
+            >
+              nuestros clientes
+            </h5>
+            <div class="title-underline-primary centered"></div>
+          </h1>
+        </div>
+
+        <div class="col-sm-12 margin-bottom">
+          <div
+            class="row flex justify-content-center align-items-center flex-wrap"
+          >
+            <div class="client col-sm-3" ng-repeat="item in $ctrl.clients">
+              <img src="{{ item.logo }}" alt="{{ item.name }}" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fw padding-tb mission bg text-white">
+    <div class="container">
+      <div class="row padding">
+        <div class="row padding">
+          <div class="col-sm-6 padding-lg">
+            <div
+              class="fw padding text-black flex flex-column justify-content-center align-items-center"
+            >
+              <p
+                class="text-center circle bg-primary inline-block padding hug-bottom"
+              >
+                <i class="fa fa-fw fa-building fa-3x"></i>
+              </p>
+
+              <h5 class="font-sm uppercase letter-space-sm">
+                <h5
+                  class="margin-sm-bottom font-lg uppercase letter-space-sm hug-top font-metalgiga-5"
+                >
+                  Misión
+                </h5>
+                <div class="title-underline-primary"></div>
+              </h5>
+              <p class="text-justify margin-top padding-lr">
+                Nuestro compromiso es consolidar ideas y proyectos en el área
+                metalmecánica, ofreciendo soluciones con nuestros productos y
+                servicios, dando la mayor satisfacción a nuestros clientes en el
+                sector comercial e industrial con los más altos estándares de
+                calidad.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-sm-6 padding-lg">
+            <div
+              class="fw padding text-black flex flex-column justify-content-center align-items-center"
+            >
+              <p
+                class="text-center circle bg-primary inline-block padding hug-bottom"
+              >
+                <i class="fa fa-fw fa-eye fa-3x"></i>
+              </p>
+
+              <h5 class="font-sm uppercase letter-space-sm">
+                <h5
+                  class="margin-sm-bottom font-lg uppercase letter-space-sm hug-top font-metalgiga-5"
+                >
+                  Visión
+                </h5>
+                <div class="title-underline-primary"></div>
+              </h5>
+              <p class="text-justify margin-top padding-lr">
+                Ser una empresa referencial en base a sus productos y servicios,
+                con un aporte de alto valor estratégico en tecnología y recursos
+                en el área metalmecánica, expandiéndonos a aquellas zonas del
+                mundo donde nuestros clientes nos consideren importantes para
+                sus negocios, aportando rentabilidad a los inversionistas,
+                confianza a nuestros clientes y seguridad a nuestros
+                trabajadores, en un ambiente favorable para el bienestar y el
+                crecimiento de todos.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-sm-6 padding-lg">
+            <div
+              class="fw padding text-black flex flex-column justify-content-center align-items-center"
+            >
+              <p
+                class="text-center circle bg-primary inline-block padding hug-bottom"
+              >
+                <i class="fa fa-fw fa-people-carry fa-3x"></i>
+              </p>
+
+              <h5 class="font-sm uppercase letter-space-sm">
+                <h5
+                  class="margin-sm-bottom font-lg uppercase letter-space-sm hug-top font-metalgiga-5"
+                >
+                  Valores
+                </h5>
+                <div class="title-underline-primary"></div>
+              </h5>
+              <p class="text-justify margin-top padding-lr">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Expedita quia rerum deserunt accusantium, ad ullam deleniti cum
+                molestias sequi blanditiis non illum quaerat accusamus qui
+                exercitationem! Possimus optio illo at. Lorem ipsum dolor sit
+                amet, consectetur adipisicing elit. Unde quaerat dolorum cum
+                minus a corporis aliquid perferendis pariatur debitis quae
+                possimus similique assumenda necessitatibus, nam in, fugiat
+                modi! Minus, quo.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-sm-6 padding-lg">
+            <div
+              class="fw padding text-black flex flex-column justify-content-center align-items-center"
+            >
+              <p
+                class="text-center circle bg-primary inline-block padding hug-bottom"
+              >
+                <i class="fa fa-fw fa-user-tie fa-3x"></i>
+              </p>
+
+              <h5 class="font-sm uppercase letter-space-sm">
+                <h5
+                  class="margin-sm-bottom font-lg uppercase letter-space-sm hug-top font-metalgiga-5"
+                >
+                  Políticas de Calidad
+                </h5>
+                <div class="title-underline-primary"></div>
+              </h5>
+              <p class="text-justify margin-top padding-lr">
+                Nuestra política de calidad se manifiesta mediante nuestro firme
+                compromiso con los clientes, satisfaciendo plenamente sus
+                requerimientos y expectativas, optimizando los procesos e
+                impulsando una cultura de calidad donde los trabajadores
+                realicen sus actividades correctamente desde el principio,
+                basada en: La honestidad, liderazgo, solidaridad, desarrollo del
+                recurso humano y seguridad en el trabajo, cumpliendo con los
+                requisitos aplicables y en la mejora continua del sistema de
+                gestión de la calidad.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fw expand bg-light-gray padding-lg-top">
+    <h1 class="font-sm uppercase letter-space-sm hug">
+      <h5
+        class="margin-sm-bottom font-xxl uppercase letter-space-sm text-center hug-top font-metalgiga-5"
+      >
+        visítanos
+      </h5>
+      <div class="title-underline-primary centered"></div>
+    </h1>
+
+    <ng-map
+      class="margin-top"
+      id="map-footer"
+      center="10.2637714, -66.850185"
+      zoom="15"
+    >
+      <marker position="Servicios Metal Giga"></marker>
+    </ng-map>
+  </div>
+</div>

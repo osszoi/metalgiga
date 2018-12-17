@@ -1,0 +1,18 @@
+.pl-typeahead {
+  .btn {
+    padding-left: 6px;
+    padding-right: 6px;
+
+    .fa {
+      font-size: 10px;
+    }
+  }
+}
+
+.uib-typeahead-match.active {
+  a,
+  a:hover {
+    background-color: $gray-bg;
+    color: inherit;
+  }
+}

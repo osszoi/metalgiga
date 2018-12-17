@@ -1,0 +1,64 @@
+.summary {
+  overflow: hidden;
+  background-color: darken($gray-darker, 3%);
+
+  .row div[class*='col']:nth-of-type(odd) {
+    background-color: $gray-darker;
+  }
+
+  .summary-body {
+    overflow: hidden;
+    padding: 15px 25px;
+    text-align: center;
+    white-space: nowrap;
+
+    span {
+      display: block;
+      font-size: 80%;
+      color: #c9d2dc;
+    }
+
+    strong {
+      display: block;
+      font-size: 120%;
+      color: #eee;
+
+      &.lg {
+        font-size: 200%;
+      }
+
+      span {
+        display: inline;
+        font-size: inherit;
+        color: #c9d2dc;
+      }
+    }
+  }
+
+  @mixin _summary-color-variant($name, $color-bg, $dark-color-bg, $text-color-dark) {
+    &.#{$name} {
+      background-color: $dark-color-bg;
+
+      .row div[class*='col']:nth-of-type(odd) {
+        background-color: $color-bg;
+      }
+      .summary-body {
+        span {
+          color: $text-color-dark;
+        }
+        strong {
+          color: #fff;
+          span {
+            color: $text-color-dark;
+          }
+        }
+      }
+    }
+  }
+
+  // Variants
+  @include _summary-color-variant('summary-primary', $brand-secundary, darken($brand-secundary, 3%), #e2f8ff);
+  @include _summary-color-variant('summary-danger', $brand-danger, darken($brand-danger, 3%), #ffcdd2);
+  @include _summary-color-variant('summary-info', $brand-info, darken($brand-info, 3%), #e2f8ff);
+  @include _summary-color-variant('summary-warning', $brand-warning, darken($brand-warning, 3%), #ffe0b2);
+}

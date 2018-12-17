@@ -1,0 +1,125 @@
+.btn {
+  outline: 0 !important;
+}
+
+.btn-primary {
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+
+.btn-secundary {
+  @include button-variant($btn-secundary-color, $btn-secundary-bg, $btn-secundary-border);
+}
+
+.btn-inverse {
+  @include button-variant(#c9d2dc, $gray-darker, #c9d2dc);
+  &:hover,
+  &:focus {
+    border-color: darken($gray-darker, 15%) !important;
+  }
+  &[disabled='disabled'] {
+    border-color: #c9d2dc !important;
+  }
+}
+
+// Outlined buttons
+.btn-outline {
+  background-color: transparent;
+  color: inherit;
+  transition: all 0.5s;
+}
+
+.btn-primary.btn-outline {
+  color: $brand-primary;
+}
+
+.btn-secundary.btn-outline {
+  color: $brand-secundary;
+}
+
+.btn-success.btn-outline {
+  color: $brand-success;
+}
+
+.btn-info.btn-outline {
+  color: $brand-info;
+}
+
+.btn-warning.btn-outline {
+  color: $brand-warning;
+}
+
+.btn-danger.btn-outline {
+  color: $brand-danger;
+}
+
+.btn-primary.btn-outline,
+.btn-secundary.btn-outline,
+.btn-success.btn-outline,
+.btn-info.btn-outline,
+.btn-warning.btn-outline,
+.btn-danger.btn-outline {
+  &:hover,
+  &:focus {
+    color: #fff;
+  }
+}
+
+.btn-primary.btn-outline:disabled:hover {
+  background-color: transparent;
+  color: $brand-primary;
+}
+
+.btn-secundary.btn-outline:disabled:hover {
+  background-color: transparent;
+  color: $brand-secundary;
+}
+
+.btn-success.btn-outline:disabled:hover {
+  background-color: transparent;
+  color: $brand-success;
+}
+
+.btn-info.btn-outline:disabled:hover {
+  background-color: transparent;
+  color: $brand-info;
+}
+
+.btn-warning.btn-outline:disabled:hover {
+  background-color: transparent;
+  color: $brand-warning;
+}
+
+.btn-danger.btn-outline:disabled:hover {
+  background-color: transparent;
+  color: $brand-danger;
+}
+
+// Button link
+@mixin _button-link-color-variant($name, $color, $hcolor) {
+  &.#{$name} {
+    color: $color;
+    &:hover,
+    &:focus {
+      color: $hcolor;
+      background-color: transparent;
+    }
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: transparent;
+    }
+    &[disabled] {
+      background-color: transparent;
+    }
+  }
+}
+
+.btn-link {
+  @include _button-link-color-variant('btn-primary', $brand-primary, darken($brand-primary, 5%));
+  @include _button-link-color-variant('btn-secundary', $brand-secundary, darken($brand-secundary, 5%));
+  @include _button-link-color-variant('btn-danger', $brand-danger, darken($brand-danger, 5%));
+  @include _button-link-color-variant('btn-success', $brand-success, darken($brand-success, 5%));
+  @include _button-link-color-variant('btn-info', $brand-info, darken($brand-info, 5%));
+  @include _button-link-color-variant('btn-warning', $brand-warning, darken($brand-warning, 5%));
+}

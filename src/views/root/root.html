@@ -1,0 +1,16 @@
+<navbar></navbar>
+
+<!-- <img class="convexe-arc"
+     src="images/convexe-arc.png"> -->
+
+<div id="root-container">
+  <div class="wrapper">
+    <div ui-view
+         ng-cloak
+         class="container-fluid"></div>
+
+    <!-- For sticky footer -->
+    <div class="push"></div>
+  </div>
+  <footer ng-if="$ctrl.showFooter"></footer>
+</div>

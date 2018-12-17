@@ -1,0 +1,59 @@
+#footer {
+  height: $footer-height;
+  background-color: #111;
+  width: 100%;
+  font-size: 90%;
+  color: #ccc;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border-top: solid 1px $footer-bg-color;
+  border-bottom: solid 2px $footer-bg-color;
+
+  .padding-xxxl-lr {
+    @media (max-width: 768px) {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+  }
+
+  .row {
+    width: 100%;
+
+    [class*='col-']:nth-child(2) {
+      @media (min-width: 768px) {
+        border-left: solid 2px $footer-bg-color;
+        border-right: solid 2px $footer-bg-color;
+      }
+
+      @media (max-width: 768px) {
+        border-top: solid 2px $footer-bg-color;
+        border-bottom: solid 2px $footer-bg-color;
+      }
+    }
+  }
+
+  .divider {
+    $divider-size: 55%;
+    height: 2px;
+    background-color: #fff;
+    width: $divider-size;
+    margin-left: (100% - $divider-size)/2;
+  }
+
+  [class*='btn'] {
+    color: $footer-bg-color;
+    background-color: $footer-font-color;
+
+    &:hover {
+      background-color: darken($footer-font-color, 25%);
+    }
+  }
+
+  ng-map {
+    $divider-size: 55%;
+    width: $divider-size;
+    margin-left: (100% - $divider-size)/2;
+    height: 150px !important;
+  }
+}

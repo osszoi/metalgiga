@@ -1,0 +1,71 @@
+// Regular collapsa button
+.collapsable-row {
+  $collapsable-btn-width: 15px;
+
+  > .btn-collapsable {
+    flex: 0 0 $collapsable-btn-width;
+    max-width: $collapsable-btn-width;
+    padding: 15px 0 0 !important;
+  }
+}
+
+// New layout styles
+.dashboard.compact-layout {
+  height: calc(100vh);
+
+  > .margin,
+  > .margin-xs,
+  > .margin-sm,
+  > .margin-lg,
+  > .margin-xl {
+    margin: 0 !important;
+    height: 100% !important;
+  }
+
+  .collapsable-row {
+    $collapsable-btn-width: 25px;
+
+    > .btn-collapsable {
+      color: #fff;
+      position: absolute;
+      z-index: 99;
+      padding: 10px 15px 10px 8px !important;
+      bottom: 15px;
+      background-color: $brand-secundary;
+
+      &:hover {
+        background-color: darken($brand-secundary, 5%);
+      }
+    }
+  }
+
+  .row {
+    height: 100%;
+
+    .info-panel {
+      background-color: #fff;
+      border-right: solid 1px $gray-lighter;
+      overflow-y: auto;
+      // overflow-x: hidden;
+
+      &.collapsed-panel {
+        max-width: 0px !important;
+        border: 0 !important;
+      }
+
+      > .panel {
+        border: none;
+      }
+    }
+
+    .details-panel {
+      background-color: #fff;
+      overflow-y: auto;
+
+      > .frame {
+        border: none;
+        border-radius: 0;
+      }
+    }
+  }
+}

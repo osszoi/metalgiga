@@ -1,0 +1,15 @@
+<div class="fw flex flex-column align-items-center padding margin-tb"
+     ng-if="expression">
+  <img ng-if="image"
+       ng-src="{{ image }}" />
+  <h3 ng-if="title"
+      ng-bind-html="title"></h3>
+  <p class="bold text-muted">{{ message | available:'No hay nada para mostrar.' }}</p>
+  <button ng-if="btnFn && btnLabel"
+          class="btn {{ btnClass || 'btn-primary' }}"
+          ng-click="btnFn()">
+    <span ng-bind-html="btnLabel"></span>
+  </button>
+
+  <ng-transclude class="fw"></ng-transclude>
+</div>

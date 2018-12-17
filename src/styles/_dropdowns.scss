@@ -1,0 +1,17 @@
+.dropdown-menu {
+  > li > a:hover,
+  > li > a:focus,
+  > li.active > a:hover,
+  > li.active > a:focus {
+    color: #fff !important;
+    // background-color: darken($brand-primary, 10%);
+    background-color: $brand-secundary;
+  }
+}
+
+.dropdown-toggle {
+  &[aria-expanded='true'] {
+    color: $brand-secundary !important;
+    // background-color: lighten($brand-primary, 50%) !important;
+  }
+}

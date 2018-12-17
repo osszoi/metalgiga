@@ -1,0 +1,181 @@
+<div class="modal-header">
+  <h3 class="modal-title">Attachments</h3>
+</div>
+
+<div id="uploader"
+     class="modal-body">
+  <div class="row">
+    <div class="col-3 col-xl-2">
+      <input type="text"
+             class="form-control input-lg margin-sm-bottom"
+             name="tag"
+             id="tag"
+             placeholder="Search..."
+             ng-model="$ctrl.search.text"
+             ng-disabled="$ctrl.isUploading">
+
+      <uib-tabset active="activePill"
+                  justified="true"
+                  type="pills">
+        <!-- Folder tab -->
+        <uib-tab index="0">
+          <uib-tab-heading>
+            <i class="fa fa-fw fa-tags"></i>
+            Tags
+          </uib-tab-heading>
+          <div cg-busy="$ctrl.loadingPromise">
+            <div class="list-group margin-sm-top hug-bottom">
+              <a href=""
+                 class="list-group-item"
+                 ng-class="{ 'active': $ctrl.search.folder === undefined }"
+                 ng-click="$ctrl.search.folder = undefined">
+                <span class="badge">{{ $ctrl.files.length | number }}</span>
+                <i class="fa fa-fw"
+                   ng-class="{ 'fa-folder-open-o': $ctrl.search.folder === undefined, 'fa-folder-o': $ctrl.search.folder !== undefined }"></i>
+                All
+              </a>
+              <a href=""
+                 class="list-group-item"
+                 ng-class="{ 'active': $ctrl.search.folder === item.tag }"
+                 ng-repeat="item in $ctrl.folders"
+                 ng-click="$ctrl.search.folder = item.tag">
+                <span class="badge">{{ item.count | number }}</span>
+                <i class="fa fa-fw"
+                   ng-class="{ 'fa-folder-open-o': $ctrl.search.folder === item.tag, 'fa-folder-o': $ctrl.search.folder !== item.tag }"></i>
+                {{ item.tag | available:'Uncategorized' }}
+              </a>
+            </div>
+          </div>
+        </uib-tab>
+        <!-- /Folder tab -->
+
+        <!-- Upload tab -->
+        <uib-tab index="1">
+          <uib-tab-heading>
+            <i class="fa fa-fw fa-upload"></i>
+            Upload
+          </uib-tab-heading>
+
+          <form name="form"
+                autocomplete="off"
+                class="margin-sm-top">
+            <!--<input type="file" class="form-control margin-sm-bottom" name="file" preview="$ctrl.preview" image="$ctrl.image" required ng-disabled="$ctrl.isUploading"  >-->
+            <div ng-if="!$ctrl.preview"
+                 ngf-drop="$ctrl.base($files)"
+                 class="drop-box"
+                 ngf-drag-over-class="'dragover'"
+                 ngf-multiple="true"
+                 ngf-pattern="'image/*,application/pdf'"
+                 ngf-no-object-url="false">
+              <p>
+                Drop files here or
+                <input id="article_file_input"
+                       type="file"
+                       class="input-file-custom"
+                       name="article_picture"
+                       preview="$ctrl.preview"
+                       image="$ctrl.image"
+                       required
+                       ng-disabled="$ctrl.isUploading">
+                <a onclick="$('input[id=article_file_input]').click();"
+                   class=" link-file">browse</a>
+              </p>
+            </div>
+
+            <div ngf-no-file-drop>File Drag/Drop is not supported for this browser.</div>
+
+            <div ng-if="$ctrl.preview"
+                 class="attachment-preview attachment-file"
+                 cg-busy="{ promise: $ctrl.uploadingPromise, message: 'Uploading...' }">
+              <i class="attachment-icon text-primary fa fa-fw fa-file{{ $ctrl.loadFile.faType }} fa-4x"></i>
+
+              <div class="attachment-info">
+                <span class="attachment-name">{{ $ctrl.preview.name }}</span>
+
+                <input ng-if="$ctrl.preview"
+                       type="text"
+                       class="form-control input-sm margin-xs-bottom"
+                       name="newTag"
+                       id="newTag"
+                       placeholder="Add a tag name"
+                       ng-model="$ctrl.tag"
+                       uib-typeahead="tag for tag in $ctrl.loadTags($viewValue)"
+                       typeahead-show-hint="true"
+                       typeahead-min-length="2"
+                       typeahead-editable="true"
+                       typeahead-append-to-body="true"
+                       ng-disabled="$ctrl.isUploading">
+
+                <span class="attachment-tag">
+                  <strong>Size:</strong>
+                  {{ $ctrl.preview.size | filesize }}
+                  <br>
+                  <a href=""
+                     ng-click="$ctrl.discard()"
+                     ng-if="!$ctrl.isUploading">Discard</a>
+                </span>
+                <!-- <uib-progressbar ng-if="$ctrl.isUploading" animate="true" value="$ctrl.progressbarValue" type="primary"></uib-progressbar> -->
+              </div>
+            </div>
+
+            <button class="btn btn-success btn-outline btn-lg btn-block margin-sm-bottom"
+                    type="button"
+                    ng-click="$ctrl.upload($ctrl.preview)"
+                    ng-disabled="!$ctrl.preview.size || form.$invalid || $ctrl.isUploading">
+              <i class="fa fa-fw fa-paperclip"></i>
+              Upload
+            </button>
+          </form>
+        </uib-tab>
+        <!-- /Upload tab -->
+      </uib-tabset>
+    </div>
+
+    <div class="col-9 col-xl-10"
+         cg-busy="$ctrl.loadingPromise">
+      <not-found expression="!($ctrl.files | filter:{ tag: $ctrl.search.folder } | filter:$ctrl.search.text).length"></not-found>
+
+      <div class="row"
+           ng-if="($ctrl.files | filter:{ tag: $ctrl.search.folder } | filter:$ctrl.search.text).length">
+        <div class="col-4 col-lg-3 col-xl-2"
+             ng-repeat="file in $ctrl.files | filter:{ tag: $ctrl.search.folder } | filter:$ctrl.search.text">
+          <div class="attachment-file">
+            <a ng-href="{{ file.path }}"
+               target="_self"
+               download>
+              <i class="attachment-icon fa fa-fw fa-file{{ file.faType }} fa-4x"
+                 uib-tooltip="{{ file.name }}"
+                 tooltip-append-to-body="true"></i>
+            </a>
+
+            <div class="attachment-info">
+              <span class="attachment-name"
+                    editable-text="file.name"
+                    onbeforesave="$ctrl.save($data, 'name', file.id)"
+                    buttons="no">
+                {{ file.name | available }}
+              </span>
+              <br>
+              <span class="attachment-tag"
+                    editable-text="file.tag"
+                    e-uib-typeahead="tag for tag in $ctrl.loadTags($viewValue)"
+                    onbeforesave="$ctrl.save($data, 'tag',  file.id)"
+                    buttons="no">
+                <span class="label label-primary label-outline">{{ file.tag | lowercase | available }}</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-danger btn-link"
+          type="button"
+          ng-click="$ctrl.cancel()"
+          ng-disabled="$ctrl.isUploading">
+    Close
+  </button>
+</div>

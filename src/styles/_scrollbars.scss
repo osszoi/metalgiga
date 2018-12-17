@@ -1,0 +1,49 @@
+$scroll-width: 15px !default;
+$scroll-border: solid $body-bg !default; // solid #f5f5f5
+$scroll-track-bg: $body-bg !default; // #f5f5f5
+$scroll-thumb-bg: lighten($brand-secundary, 30%) !default; // #cdcdcd
+$scroll-thumb-hover-bg: lighten($brand-secundary, 40%) !default; // #999
+
+// Gmail style scrollbar
+::-webkit-scrollbar {
+  background: transparent;
+  overflow: visible;
+  width: $scroll-width;
+  height: $scroll-width;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: $scroll-border;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  border-width: 0px 0px;
+  min-width: 40px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  border-width: 0px 0px;
+  min-height: 40px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: darken($brand-secundary, 25%);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $scroll-thumb-bg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $scroll-thumb-hover-bg;
+}

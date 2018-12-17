@@ -1,0 +1,27 @@
+.label {
+  font-weight: normal;
+  padding: 0.4em 0.8em;
+  font-size: 80%;
+  display: inline-block;
+
+  &.label-outline {
+    border-width: 1px;
+    border-style: solid;
+    background-color: transparent;
+
+    @mixin _color-variant($name, $color) {
+      &.#{$name} {
+        border-color: $color;
+        color: $color;
+      }
+    }
+
+    @include _color-variant('label-default', $text-muted);
+    @include _color-variant('label-primary', $brand-secundary);
+    @include _color-variant('label-secundary', $brand-primary);
+    @include _color-variant('label-success', lighten($brand-success, 10%));
+    @include _color-variant('label-danger', $brand-danger);
+    @include _color-variant('label-info', $brand-info);
+    @include _color-variant('label-warning', $brand-warning);
+  }
+}

@@ -1,0 +1,107 @@
+<div id="comments-dashboard"
+     cg-busy="{ promise: $ctrl.loadingPromise, message: $ctrl.isSaving ? 'Commenting...' : 'Loading...' }">
+
+  <div class="bordered-bottom padding-sm">
+    <script type="text/ng-template"
+            id="'user-mentions.tpl'">
+      <ul class="list-group user-search">
+        <li mentio-menu-item="person" ng-repeat="person in items" class="list-group-item search-user-result">
+          <img class="circle" ng-src="{{ person.profilePicturePath | defaultImage }}">
+          <span>
+            {{ person.name }} (@{{ person.username }})
+          </span>
+        </li>
+      </ul>
+    </script>
+
+    <form name="form"
+          ng-submit="$ctrl.create()"
+          autocomplete="off">
+      <div class="input-group input-group-lg ui-mention-container">
+        <input type="text"
+               class="form-control"
+               ng-model="$ctrl.newComment"
+               placeholder="Escribe un comentario..."
+               autofocus
+               required
+               ng-disabled="$ctrl.isSaving"
+               maxlength="300"
+               mentio
+               mentio-typed-text="typedTerm"
+               mentio-items="$ctrl.acUsers | filter:label:typedTerm"
+               mentio-search="$ctrl.typeaheadUsers(term)"
+               mentio-template-url="'user-mentions.tpl'"
+               mentio-select="$ctrl.selectUser(item)">
+        <span class="input-group-btn">
+          <button class="btn btn-primary btn-secundary"
+                  type="submit"
+                  ng-disabled="form.$invalid || $ctrl.isSaving">
+            <i class="fa fa-fw fa-paper-plane"></i>
+          </button>
+        </span>
+      </div>
+    </form>
+
+    <div class="margin-sm-top inline-block"
+         ng-if="$ctrl.reaction">
+      <div class="flex align-items-baseline pull-left margin-sm-right"
+           ng-if="!$ctrl.disliked">
+        <i class="fa fa-fw fa-thumbs-up text-success fa-2x pointer"
+           uib-tooltip="Me gusta"
+           tooltip-append-to-body="true"
+           ng-click="$ctrl.liked = true;"></i>
+
+        <span class="text-success margin-sm-left"
+              ng-if="$ctrl.liked">Gracias, tu opinión fue tomada en cuenta para mejorar nuestros servicios.</span>
+      </div>
+
+      <div class="flex align-items-baseline pull-left"
+           ng-if="!$ctrl.liked">
+        <i class="fa fa-fw fa-thumbs-down text-danger fa-2x pointer"
+           uib-tooltip="No me gusta"
+           tooltip-append-to-body="true"
+           ng-click="$ctrl.disliked = true;"></i>
+
+        <span class="text-danger margin-sm-left"
+              ng-if="$ctrl.disliked">Gracias, tu opinión fue tomada en cuenta para mejorar nuestros servicios.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="comments-list"
+       ng-if="$ctrl.comments.length">
+    <div class="row comment-row align-items-center"
+         ng-repeat="comment in $ctrl.comments | orderBy:'-createdAt'">
+      <div class="col-3">
+        <div class="comment-user left"
+             ng-if="comment.user.id !== $ctrl.session.id">
+          <img class="circle"
+               ng-src="{{ comment.user.profilePicturePath | defaultImage }}"
+               alt="Profile">
+          <h4>{{ comment.user.name | available }}</h4>
+          <small class="text-muted">{{ comment.createdAt | date:'dd/MM/yyyy hh:mm a' }}</small>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="comment-content"
+             ng-class="{ 'mine': comment.user.id === $ctrl.session.id }">
+          <span compile="comment.text | mentions"></span>
+          <!-- <code>{{ comment.text | json }}</code> -->
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="comment-user right"
+             ng-if="comment.user.id === $ctrl.session.id">
+          <img class="circle"
+               ng-src="{{ comment.user.profilePicturePath | defaultImage }}"
+               alt="Profile">
+          <h4>{{ comment.user.name | available }}</h4>
+          <small class="text-muted">{{ comment.createdAt | date:'dd/MM/yyyy hh:mm a' }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <not-found expression="!$ctrl.comments.length"
+             message="No hay ningún comentario."></not-found>
+</div>

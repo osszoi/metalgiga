@@ -1,0 +1,119 @@
+<form name="form"
+      autocomplete="off">
+  <div class="modal-header"
+       ng-class="{ 'pointer': $ctrl.isCollapsable }"
+       ng-click="$ctrl.switchComposeState()">
+    <h3 class="modal-title"
+        ng-bind-html="$ctrl.title"></h3>
+  </div>
+
+  <div uib-collapse="isCollapsed && $ctrl.isCollapsable"
+       class="modal-body">
+    <div ng-if="$ctrl.text"
+         ng-bind-html="$ctrl.text"
+         ng-class="{ 'margin-sm-bottom': $ctrl.inputs.length }"></div>
+
+    <div ng-repeat="item in $ctrl.inputs track by $index">
+      <div class="form-group"
+           ng-class="{ 'has-error': form[item.map].$invalid, 'has-success': form[item.map].$valid, 'hug-bottom': $last }">
+        <label ng-if="item.label"
+               ng-bind-html="item.label"
+               class="{{ item.extraLabelClasses }}"
+               for="{{ item.map }}"></label>
+
+        <span ng-switch="item.type">
+          <span ng-switch-when="textarea">
+            <textarea class="form-control resize-vertical"
+                      class="form-control {{ item.extraInputClasses }}"
+                      placeholder="{{ item.placeholder }}"
+                      ng-model="item.value"
+                      step="{{ item.step }}"
+                      name="{{ item.map }}"
+                      id="{{ item.map }}"
+                      maxlength="{{ item.maxlength }}"
+                      minlength="{{ item.minlength }}"
+                      ng-required="item.required"
+                      rows="3"
+                      autofocus="{{ $first }}"></textarea>
+          </span>
+          <span ng-switch-default>
+            <input type="{{ item.type }}"
+                   class="form-control {{ item.extraInputClasses }}"
+                   placeholder="{{ item.placeholder }}"
+                   ng-model="item.value"
+                   step="{{ item.step }}"
+                   name="{{ item.map }}"
+                   id="{{ item.map }}"
+                   maxlength="{{ item.maxlength }}"
+                   minlength="{{ item.minlength }}"
+                   ng-min="item.min"
+                   ng-max="item.max"
+                   ng-pattern="item.pattern"
+                   ng-required="item.required"
+                   compare-to="$ctrl.inputs[item.compareTo].value"
+                   autofocus="{{ $first }}">
+          </span>
+        </span>
+
+        <span class="help-block"
+              ng-messages="form[item.map].$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="minlength">La longitud debe ser mayor o igual a {{ item.minlength }}.</span>
+          <span ng-message="min">El valor debe ser menor o igual a {{ item.min }}.</span>
+          <span ng-message="maxlength">La longitud debe ser menor o igual a {{ item.maxlength }}.</span>
+          <span ng-message="max">El valor debe ser mayor o igual a {{ item.max }}.</span>
+          <span ng-message="compareTo"
+                ng-bind-html="item.compareToErrorMessage"></span>
+          <span ng-message="pattern"
+                ng-bind-html="item.petternErrorMessage"></span>
+        </span>
+      </div>
+    </div>
+
+    <div ng-repeat="item in $ctrl.selects track by $index">
+      <div class="form-group margin-top"
+           ng-class="{ 'has-error': !item.value, 'has-success': item.value, 'hug-bottom': $last }">
+        <label ng-if="item.label"
+               ng-bind-html="item.label"
+               class="{{ item.extraLabelClasses }}"
+               for="{{ item.map }}"></label>
+
+        <select class="form-control {{ item.extraInputClasses }}"
+                placeholder="{{ item.placeholder }}"
+                ng-model="item.value"
+                name="{{ item.map }}"
+                id="{{ item.map }}"
+                ng-required="item.required"
+                compare-to="$ctrl.selects[item.compareTo].value">
+          <option ng-repeat="d in item.data track by $index"
+                  value="{{ item.idField ? d[item.idField] : d }}">{{ d[item.nameField] }}
+          </option>
+        </select>
+
+        <span class="help-block"
+              ng-messages="form[item.map].$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="compareTo"
+                ng-bind-html="item.compareToErrorMessage"></span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal-footer">
+    <button class="btn btn-danger btn-outline"
+            type="button"
+            ng-click="$ctrl.cancel()"
+            ng-bind-html="$ctrl.cancelButtonText"
+            ng-if="$ctrl.cancelButtonText.length"></button>
+    <button class="btn btn-default"
+            type="button"
+            ng-click="$ctrl.ok()"
+            ng-bind-html="$ctrl.confirmButtonText"
+            ng-if="$ctrl.confirmButtonText.length"
+            ng-disabled="form.$invalid"></button>
+  </div>
+</form>

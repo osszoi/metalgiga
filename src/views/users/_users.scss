@@ -1,0 +1,68 @@
+user-card {
+  .user-card {
+    height: $subject-card-base-height - 100px;
+
+    & > .fa {
+      color: #eee;
+      background-color: #333;
+      width: 100%;
+      padding: 30px 0px;
+      border-top-left-radius: $subject-card-border-radius;
+      border-top-right-radius: $subject-card-border-radius;
+    }
+
+    .bg-image {
+      position: absolute;
+      width: calc(100% - 10px);
+      height: ($subject-card-base-height - 100px) * $subject-card-bottom-proportion + 28px;
+      z-index: 1 !important;
+      margin-top: -28px;
+
+      @media (min-width: 768px) {
+        &.blue {
+          background: url(../images/blue-square.png) !important;
+          background-size: cover !important;
+          background-repeat: no-repeat !important;
+        }
+
+        &.orange {
+          background: url(../images/orange-square.png) !important;
+          background-size: cover !important;
+          background-repeat: no-repeat !important;
+        }
+      }
+    }
+
+    & > div {
+      // background: url(../images/blue-square.png);
+      // background-size: cover;
+      // background-repeat: no-repeat;
+      z-index: 2;
+      position: absolute;
+      width: calc(100% - 10px);
+
+      color: #fefefe;
+      line-height: 18px;
+      border-bottom-left-radius: $subject-card-border-radius;
+      border-bottom-right-radius: $subject-card-border-radius;
+      height: $subject-card-base-height * $subject-card-bottom-proportion;
+
+      h4 {
+        span {
+          padding: 0px 7px;
+          border-bottom: 2px solid #eee;
+        }
+      }
+
+      // Teacher
+      div {
+        background: transparent !important;
+
+        img {
+          height: 60px;
+          width: 60px;
+        }
+      }
+    }
+  }
+}

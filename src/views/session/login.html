@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-md-6 offset-md-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h2 class="hug-top margin-bottom padding-sm-bottom flex justify-content-center">
+            <!-- <i class="dawere-arrow"></i> dawere -->
+            <img class="img-responsive logo"
+                 src="images/logo.svg"
+                 alt="Dawere">
+          </h2>
+
+          <div class="row">
+            <div class="col-md-6">
+              <form name="form"
+                    role="form"
+                    ng-submit="$ctrl.login($ctrl.credentials)">
+                <div class="form-group">
+                  <input type="text"
+                         class="form-control"
+                         name="username"
+                         placeholder="Usuario o correo electrónico"
+                         ng-model="$ctrl.credentials.username"
+                         required
+                         autofocus
+                         ng-disabled="$ctrl.isLoading"
+                         tabindex="1">
+                </div>
+                <div class="form-group">
+                  <input type="password"
+                         class="form-control"
+                         name="password"
+                         placeholder="Contraseña"
+                         ng-model="$ctrl.credentials.password"
+                         required
+                         ng-disabled="$ctrl.isLoading"
+                         tabindex="2">
+                </div>
+                <button type="submit"
+                        class="btn btn-block btn-secundary"
+                        ng-disabled="form.$invalid || $ctrl.isLoading"
+                        tabindex="3">
+                  <span ng-switch="$ctrl.isLoading">
+                    <span ng-switch-when="true">
+                      <i class="fa fa-fw fa-spin fa-spinner"></i> Iniciando sesión
+                    </span>
+                    <span ng-switch-default>Iniciar sesión</span>
+                  </span>
+                </button>
+
+                <p class="small text-right text-muted hug-bottom pointer hover-primary margin-sm-top"
+                   ng-click="$ctrl.openForgotPasswordModal()">
+                  Olvidé mi contraseña
+                </p>
+              </form>
+            </div>
+
+            <div class="col-md-6">
+              <button type="button"
+                      class="btn btn-facebook btn-block" ng-click="$ctrl.loginFacebook()">
+                <i class="fab fa-fw fa-facebook"></i> Inicia sesión
+              </button>
+
+              <google-plus-signin clientid="118121622583-ioalaqfpca5geq5u136r45m84im42um0"
+                                  autorender="false"
+                                  language="es"
+                                  customtargetid="google-plus-signin">
+                <button type="button"
+                        id="google-plus-signin"
+                        class="btn btn-google btn-block margin-sm-top">
+                  <i class="fab fa-fw fa-google"></i> Inicia sesión
+                </button>
+              </google-plus-signin>
+
+              <p class="text-right hug-bottom">
+                ¿No tienes cuenta?
+                <a href=""
+                   ng-click="$ctrl.openRegisterModal()">Regístrate aquí</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="small margin-top text-center">
+        Última actualización: {{ $ctrl.PageService.getAppInfo().date | date:'dd/MM/yyyy' }} ({{ $ctrl.PageService.getAppInfo().version
+        | available }})
+      </div>
+    </div>
+  </div>
+</div>

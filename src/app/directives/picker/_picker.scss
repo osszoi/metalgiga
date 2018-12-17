@@ -1,0 +1,145 @@
+#picker {
+  $picker-height: 75px;
+
+  // border: solid 1px $gray-lighter;
+  background-color: darken($gray-bg, 8%);
+  min-height: $picker-height;
+  @include clearfix();
+
+  .picker-icon {
+    float: left;
+    text-align: center;
+    padding: 0 10px;
+    overflow: hidden;
+    line-height: $picker-height;
+    height: $picker-height;
+    // border-right: solid 1px $gray-lighter;
+    cursor: pointer;
+    background-color: lighten($gray-bg, 2%);
+
+    &:hover {
+      background-color: lighten($gray-bg, 1%);
+    }
+  }
+
+  .picker-button {
+    float: left;
+    text-align: center;
+    padding: 0 12px;
+    line-height: $picker-height;
+    height: $picker-height;
+    overflow: hidden;
+    color: $brand-secundary;
+    // border-right: solid 1px $gray-lighter;
+    cursor: pointer;
+    background-color: lighten($gray-bg, 2%);
+
+    &:hover {
+      background-color: lighten($gray-bg, 1%);
+    }
+  }
+
+  .picker-scroller {
+    position: relative;
+    height: $picker-height;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+    .picker-entry {
+      background-color: #fff;
+      display: inline-block;
+      text-align: center;
+      // border-left: solid 1px $gray-lighter;
+      height: 100%;
+      min-height: 100%;
+      min-width: 60px !important;
+
+      .picker-status {
+        position: absolute;
+        top: 4px;
+        margin-left: 10px;
+        color: transparent;
+        font-size: 70%;
+
+        &.danger {
+          color: $brand-danger;
+        }
+        &.primary {
+          color: $brand-secundary;
+        }
+        &.warning {
+          color: $brand-warning;
+        }
+        &.success {
+          color: $brand-success;
+        }
+        &.info {
+          color: $brand-info;
+        }
+      }
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:last-child {
+        border-right: solid 1px $gray-lighter;
+        margin-right: 45px;
+      }
+
+      &.active {
+        background-color: $brand-secundary;
+        color: #fff;
+        span {
+          color: #eee !important;
+        }
+        &:hover {
+          background-color: $brand-secundary;
+        }
+        .picker-text .picker-inner-text {
+          pointer-events: none;
+        }
+      }
+
+      &:hover {
+        background-color: lighten($gray-bg, 1%);
+      }
+
+      .picker-text {
+        display: table;
+        height: 100%;
+        width: 100%;
+
+        .picker-inner-text {
+          display: table-cell;
+          vertical-align: middle;
+          padding: 0 12px;
+          cursor: pointer;
+
+          strong {
+            font-size: 130%;
+          }
+
+          span {
+            font-size: 85%;
+            display: block;
+            color: #888;
+          }
+        }
+      }
+
+      .picker-options {
+        background-color: $brand-primary;
+        height: 100%;
+        padding: 5px 3px 0;
+
+        i {
+          cursor: pointer;
+          display: block;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}

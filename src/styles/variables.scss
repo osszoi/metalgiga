@@ -1,0 +1,46 @@
+// Colors
+$color-1: #46bfbd;
+$color-2: #d32f2f;
+$color-3: #fdb45c;
+$color-4: #ff6f00;
+$color-5: #2e7d32;
+$color-6: #5e35b1;
+$color-7: #ff4081;
+$color-8: #d500f9;
+$color-9: #8bc34a;
+$color-10: #009688;
+
+$arc-height: 40px;
+
+// Login
+$login-bg: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url(../images/orange-bubble.svg), url(../images/blue-bubble.svg);
+$login-bg-size: cover;
+
+// Navbar
+$navbar-height: 65px;
+
+// Dashboard
+$dashboard-text-color: #777;
+
+// Footer
+$footer-height: auto;
+$footer-bg-color: darken($brand-primary, 20%);
+$footer-font-color: #ededed;
+
+// Comments
+$comments-bg: #e2f8ff;
+
+// Subject Cards
+$subject-card-border-radius: 20px;
+
+// Modals
+$modal-header-bg: $footer-bg-color;
+
+// Subject card
+$subject-card-base-height: 350px;
+$subject-card-image-proportion: 0.4;
+$subject-card-bottom-proportion: 1 - $subject-card-image-proportion;
+
+// Profile Sidebar
+$sidebar-width: 120px;

@@ -1,0 +1,259 @@
+<form name="form"
+      autocomplete="off">
+  <div class="modal-header">
+    <h3 class="modal-title pull-left">Nuevo usuario</h3>
+    <div class="pull-right">
+      <div class="btn-group btn-group-sm">
+        <button type="button"
+                class="close"
+                ng-click="$ctrl.cancel()"
+                ng-disabled="$ctrl.isSaving"
+                title="Cerrar">
+          <i class="fa fa-fw fa-times"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div uib-collapse="isCollapsed"
+       class="modal-body"
+       cg-busy="{ promise: $ctrl.loadingPromise, message: $ctrl.isSaving ? 'Guardando...' : 'Cargando...' }">
+
+    <p class="text-center bold text-gray">Registrate usando tu cuenta de</p>
+
+    <button type="button"
+            class="btn btn-facebook btn-block radiusless" ng-click="$ctrl.facebookRegister()">
+      <i class="fab fa-fw fa-facebook"></i> Facebook
+    </button>
+
+    <google-plus-signin clientid="118121622583-ioalaqfpca5geq5u136r45m84im42um0"
+                        autorender="true"
+                        language="es"
+                        customtargetid="google-plus-signin"
+                        broadcast-event-success="google-register-success">
+      <button type="button"
+              id="google-plus-signin"
+              class="btn btn-google btn-block margin-sm-top radiusless">
+        <i class="fab fa-fw fa-google"></i> Google
+      </button>
+    </google-plus-signin>
+
+    <p class="text-center bold text-gray margin-sm-top padding-sm-top margin-sm-bottom bordered-top">...o create una cuenta
+      en Dawere</p>
+
+    <div class="form-group row has-feedback"
+         ng-class="{ 'has-error': form.name.$invalid && form.name.$touched, 'has-success': form.name.$valid && form.name.$touched }">
+      <label class="col-4 col-form-label"
+             for="textinput">Nombre</label>
+      <div class="col-6">
+        <input type="text"
+               name="name"
+               id="name"
+               class="form-control"
+               ng-model="$ctrl.data.name"
+               required
+               placeholder=""
+               required
+               ng-pattern="/^[a-zA-Z\s]+$/"
+               maxlength="50">
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.name.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="maxlength">Length must be lower than or equal to 50.</span>
+          <span ng-message="pattern">Este campo solo admite letras mayúsculas y minúsculas.</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+
+    <div class="form-group row has-feedback"
+         ng-class="{ 'has-error': form.lastName.$invalid && form.lastName.$touched, 'has-success': form.lastName.$valid && form.lastName.$touched }">
+      <label class="col-4 col-form-label"
+             for="textinput">Apellido</label>
+      <div class="col-6">
+        <input type="text"
+               name="lastName"
+               id="lastName"
+               class="form-control"
+               ng-model="$ctrl.data.lastName"
+               required
+               placeholder=""
+               required
+               ng-pattern="/^[a-zA-Z\s]+$/"
+               maxlength="50">
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.lastName.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="maxlength">Length must be lower than or equal to 50.</span>
+          <span ng-message="pattern">Este campo solo admite letras mayúsculas y minúsculas.</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+
+    <div class="form-group row has feedback"
+         ng-class="{ 'has-error': form.username.$invalid && form.username.$touched, 'has-success': form.username.$valid && form.username.$touched }">
+      <label class="col-4 col-form-label"
+             for="username">Nombre de usuario</label>
+      <div class="col-6">
+        <input type="text"
+               name="username"
+               id="username"
+               class="form-control"
+               ng-model="$ctrl.data.username"
+               required
+               placeholder=""
+               required
+               minlength="4"
+               maxlength="50">
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.username.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="minlength, maxlength">La longitud debe ser entre 4 y 50 caracteres.</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+
+    <div class="form-group row has-feedback"
+         ng-class="{ 'has-error': form.email.$invalid && form.email.$touched, 'has-success': form.email.$valid && form.email.$touched }">
+      <label class="col-4 col-form-label"
+             for="email"
+             name="email">Email</label>
+      <div class="col-6">
+        <input type="email"
+               name="email"
+               id="email"
+               class="form-control"
+               ng-model="$ctrl.data.email"
+               required
+               placeholder=""
+               ng-pattern="/^.+@.+\..+$/"
+               required
+               autocomplete="off"
+               maxlength="50">
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.email.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="pattern">Email inválido.</span>
+          <span ng-message="maxlength">Length must be greater than or equal to 50.</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+
+    <div class="form-group row has feedback"
+         ng-class="{ 'has-error': form.confirmemail.$invalid && form.confirmemail.$touched, 'has-success': form.confirmemail.$valid && form.confirmemail.$touched }">
+      <label class="col-4 col-form-label"
+             for="confirmemail">Confirmar Email</label>
+      <div class="col-6">
+        <input type="email"
+               name="confirmemail"
+               id="confirmemail"
+               class="form-control"
+               name="confirmemail"
+               ng-model="$ctrl.data.confirmemail"
+               compare-to="$ctrl.data.email"
+               placeholder=""
+               required
+               autocomplete="off"
+               maxlength="50">
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.confirmemail.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="minlength, maxlength">La longitud debe ser entre 8 y 20.</span>
+          <span ng-message="pattern">Email inválido.</span>
+          <span ng-message="compareTo">Los emails no coinciden.</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+
+    <div class="form-group row has feedback"
+         ng-class="{ 'has-error': form.password.$invalid && form.password.$touched, 'has-success': form.password.$valid && form.password.$touched }">
+      <label class="col-4 col-form-label"
+             for="password">Contraseña</label>
+      <div class="col-6">
+        <input type="password"
+               name="password"
+               id="password"
+               class="form-control"
+               name="password"
+               ng-model="$ctrl.data.password"
+               placeholder=""
+               required
+               minlength="8"
+               maxlength="20">
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.password.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="minlength, maxlength">La longitud debe ser entre 8 y 20.</span>
+          <span ng-message="pattern">
+            Password must have at least a character.
+            <br> Password must have at least a special character.
+          </span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+
+    <div class="form-group row has feedback"
+         ng-class="{ 'has-error': form.confirmpassword.$invalid && form.confirmpassword.$touched, 'has-success': form.confirmpassword.$valid && form.confirmpassword.$touched }">
+      <label class="col-4 col-form-label"
+             for="confirmpassword">Confirmar Contraseña</label>
+      <div class="col-6">
+        <input type="password"
+               class="form-control"
+               name="confirmpassword"
+               type="confirmpassword"
+               ng-model="ctrl.data.confirmpassword"
+               compare-to="$ctrl.data.password"
+               placeholder=""
+               required
+               minlength="8"
+               maxlength="20">
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.confirmpassword.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="compareTo">Las contraseñas no coinciden.</span>
+          <span ng-message="minlength, maxlength">La longitud debe ser entre 8 y 20.</span>
+          <span ng-message="pattern">
+            Password must have at least a character.
+            <br> Password must have at least a special character.
+          </span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer"
+       uib-collapse="isCollapsed">
+    <button class="btn btn-danger btn-link"
+            type="button"
+            ng-click="$ctrl.cancel()"
+            ng-disabled="$ctrl.isSaving">
+      Cerrar
+    </button>
+    <button class="btn btn-default"
+            type="button"
+            ng-click="$ctrl.save()"
+            ng-disabled="form.$invalid || $ctrl.isSaving">
+      <i class="fa fa-fw fa-save"></i>
+      Crear
+    </button>
+  </div>
+</form>

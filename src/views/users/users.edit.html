@@ -1,0 +1,347 @@
+<form name="form"
+      autocomplete="off">
+  <div class="container"
+       cg-busy="$ctrl.loadingPromise">
+    <h2>Información Básica</h2>
+    <p class="margin-bottom">Mediante el siguiente formulario podrás editar tus datos</p>
+
+    <!-- Form field -->
+    <div class="form-group row has-feedback"
+         ng-class="{ 'has-error': form.email.$invalid && form.email.$touched, 'has-success': form.email.$valid && form.email.$touched }">
+      <label class="col-4 col-form-label"
+             for="textinput">Email</label>
+      <div class="col-6">
+        <input name="email"
+               id="email"
+               class="form-control"
+               type="email"
+               ng-model="$ctrl.data.email"
+               required
+               placeholder="Email"
+               disabled
+               maxlength="200"
+               minlength="0" />
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.email.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="minlength">Este campo es requerido.</span>
+          <span ng-message="maxlength">La longitud máxima permitida es de 200 caracteres.</span>
+          <span ng-message="pattern">Este campo solo admite letras mayúsculas y minúsculas.</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+    <!-- /Form field -->
+
+    <!-- Form field -->
+    <div class="form-group row has-feedback"
+         ng-class="{ 'has-error': form.name.$invalid && form.name.$touched, 'has-success': form.name.$valid && form.name.$touched }">
+      <label class="col-4 col-form-label"
+             for="textinput">Nombre</label>
+      <div class="col-6">
+        <input name="name"
+               id="name"
+               class="form-control"
+               ng-model="$ctrl.data.name"
+               required
+               placeholder="Nombre"
+               ng-pattern="/^[a-zA-Z\s]+$/"
+               maxlength="200"
+               minlength="0" />
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.name.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="minlength">Este campo es requerido.</span>
+          <span ng-message="maxlength">La longitud máxima permitida es de 200 caracteres.</span>
+          <span ng-message="pattern">Este campo solo admite letras mayúsculas y minúsculas.</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+    <!-- /Form field -->
+
+    <!-- Form field -->
+    <div class="form-group row has-feedback"
+         ng-class="{ 'has-error': form.lastName.$invalid && form.lastName.$touched, 'has-success': form.lastName.$valid && form.lastName.$touched }">
+      <label class="col-4 col-form-label"
+             for="textinput">Apellido</label>
+      <div class="col-6">
+        <input name="lastName"
+               id="lastName"
+               class="form-control"
+               ng-model="$ctrl.data.lastName"
+               required
+               placeholder="Apellido"
+               ng-pattern="/^[a-zA-Z\s]+$/"
+               maxlength="200"
+               minlength="0" />
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.lastName.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="minlength">Este campo es requerido.</span>
+          <span ng-message="maxlength">La longitud máxima permitida es de 200 caracteres.</span>
+          <span ng-message="pattern">Este campo solo admite letras mayúsculas y minúsculas.</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+    <!-- /Form field -->
+
+    <!-- Form field -->
+    <div class="form-group row has-feedback"
+         ng-class="{ 'has-error': form.gender.$invalid && form.gender.$touched, 'has-success': form.gender.$valid && form.gender.$touched }">
+      <label class="col-4 col-form-label"
+             for="textinput">Sexo</label>
+      <div class="col-6">
+        <select name="gender"
+                id="gender"
+                class="form-control"
+                required
+                ng-model="$ctrl.data.gender">
+          <option value="M">Masculino</option>
+          <option value="F">Femenino</option>
+        </select>
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.gender.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="maxlength">La longitud máxima permitida es de 200 caracteres.</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+    <!-- /Form field -->
+
+    <!-- Form field -->
+    <div class="form-group row has-feedback"
+         ng-class="{ 'has-error': form.username.$invalid && form.username.$touched, 'has-success': form.username.$valid && form.username.$touched }">
+      <label class="col-4 col-form-label"
+             for="textinput">Nombre de usuario</label>
+      <div class="col-6">
+        <input name="username"
+               id="username"
+               class="form-control"
+               ng-model="$ctrl.data.username"
+               required
+               placeholder="Nombre de usuario"
+               maxlength="200"
+               minlength="0" />
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.username.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="minlength">Este campo es requerido.</span>
+          <span ng-message="maxlength">La longitud máxima permitida es de 200 caracteres.</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+    <!-- /Form field -->
+
+    <!-- Form field -->
+    <div class="form-group row has-feedback"
+         ng-class="{ 'has-error': (form.identificationNumberType.$invalid && form.identificationNumberType.$touched) || (form.document.$invalid && form.document.$touched), 'has-success': (form.identificationNumberType.$valid && form.identificationNumberType.$touched) && (form.document.$valid && form.document.$touched) }">
+      <label class="col-4 col-form-label"
+             for="textinput">Cédula</label>
+      <div class="col-6">
+        <div class="input-group">
+          <div>
+            <select name="identificationNumberType"
+                    id="identificationNumberType"
+                    class="form-control"
+                    required
+                    ng-model="$ctrl.data.identificationNumberType">
+              <option value="V">V</option>
+              <option value="E">E</option>
+            </select>
+          </div>
+
+          <div>
+            <input name="document"
+                   id="document"
+                   class="form-control"
+                   ng-model="$ctrl.data.document"
+                   required
+                   placeholder="Cédula"
+                   maxlength="32"
+                   minlength="0" />
+          </div>
+        </div>
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.document.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="maxlength">La longitud máxima permitida es de 32 caracteres.</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+    <!-- /Form field -->
+
+    <!-- Form field -->
+    <div class="form-group row has-feedback"
+         ng-class="{ 'has-error': form.birthday.$invalid && form.birthday.$touched, 'has-success': form.birthday.$valid && form.birthday.$touched }">
+      <label class="col-4 col-form-label"
+             for="textinput">Fecha de nacimiento</label>
+      <div class="col-6">
+        <p class="input-group">
+          <input type="text"
+                 class="form-control"
+                 name="birthdate"
+                 uib-datepicker-popup="dd/MM/yyyy"
+                 ng-model="$ctrl.data.birthdate"
+                 is-open="popup1.opened"
+                 ng-required="true"
+                 datepicker-options="{ maxDate: $ctrl.today }"
+                 close-text="Cerrar"
+                 show-button-bar="false" />
+          <span class="input-group-btn">
+            <button type="button"
+                    class="btn btn-default radiusless"
+                    ng-click="popup1.opened = true">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </button>
+          </span>
+        </p>
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.birthdate.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="minlength">Este campo es requerido.</span>
+          <span ng-message="maxlength">La longitud máxima permitida es de 200 caracteres.</span>
+          <span ng-message="date">El formato de fecha ingreso es inválido. Por favor use dd/mm/aaaa</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+    <!-- /Form field -->
+
+    <!-- Form field -->
+    <div class="form-group row has-feedback"
+         ng-class="{ 'has-error': (form.cellphoneOperator.$invalid && form.cellphoneOperator.$touched) || (form.cellphone.$invalid && form.cellphone.$touched), 'has-success': (form.cellphoneOperator.$valid && form.cellphoneOperator.$touched) && (form.cellphone.$valid && form.cellphone.$touched) }">
+      <label class="col-4 col-form-label"
+             for="textinput">Teléfono móvil</label>
+      <div class="col-6">
+        <div class="input-group">
+          <div>
+            <select name="cellphoneOperator"
+                    id="cellphoneOperator"
+                    class="form-control"
+                    required
+                    ng-model="$ctrl.data.profile.cellphoneOperator"
+                    ng-options="item.callingCodes[0] as ('(+' + item.callingCodes[0] + ') ' + (item.translations.es || item.name)) for item in $ctrl.countryCodes">
+            </select>
+          </div>
+
+          <div>
+            <input name="cellphone"
+                   id="cellphone"
+                   class="form-control"
+                   ng-model="$ctrl.data.profile.cellphone"
+                   required
+                   placeholder="Teléfono móvil"
+                   ng-pattern="/^[0-9]+$/"
+                   minlength="0" />
+          </div>
+        </div>
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.cellphone.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="maxlength">La longitud máxima permitida es de 7 caracteres.</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+    <!-- /Form field -->
+
+    <!-- Form field -->
+    <div class="form-group row has-feedback"
+         ng-class="{ 'has-error': form.address.$invalid && form.address.$touched, 'has-success': form.address.$valid && form.address.$touched }">
+      <label class="col-4 col-form-label"
+             for="textinput">Dirección</label>
+      <div class="col-6">
+        <textarea name="address"
+                  id="address"
+                  class="form-control"
+                  ng-model="$ctrl.data.profile.address1"
+                  placeholder="Dirección"
+                  maxlength="200"></textarea>
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.address.$error"
+              role="alert">
+          <span ng-message="required">Este campo es requerido.</span>
+          <span ng-message="minlength">Este campo es requerido.</span>
+          <span ng-message="maxlength">La longitud máxima permitida es de 200 caracteres.</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+    <!-- /Form field -->
+
+    <!-- Form field -->
+    <div class="form-group row has-feedback"
+         ng-class="{ 'has-error': form.twitter.$invalid && form.twitter.$touched, 'has-success': form.twitter.$valid && form.twitter.$touched }">
+      <label class="col-4 col-form-label"
+             for="textinput">Twitter</label>
+      <div class="col-6">
+        <input name="twitter"
+               id="twitter"
+               class="form-control"
+               ng-model="$ctrl.data.profile.twitter"
+               placeholder="Twitter"
+               maxlength="64" />
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.twitter.$error"
+              role="alert">
+          <span ng-message="maxlength">La longitud máxima permitida es de 64 caracteres.</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+    <!-- /Form field -->
+
+    <!-- Form field -->
+    <div class="form-group row has-feedback"
+         ng-class="{ 'has-error': form.instagram.$invalid && form.instagram.$touched, 'has-success': form.instagram.$valid && form.instagram.$touched }">
+      <label class="col-4 col-form-label"
+             for="textinput">Instagram</label>
+      <div class="col-6">
+        <input name="instagram"
+               id="instagram"
+               class="form-control"
+               ng-model="$ctrl.data.profile.instagram"
+               placeholder="Instagram"
+               maxlength="64" />
+        <!-- Errors -->
+        <span class="help-block"
+              ng-messages="form.instagram.$error"
+              role="alert">
+          <span ng-message="maxlength">La longitud máxima permitida es de 64 caracteres.</span>
+        </span>
+        <!-- /Errors -->
+      </div>
+    </div>
+    <!-- /Form field -->
+
+    <div class="margin-tb">
+      <button class="btn btn-secundary centered padding-lg-lr"
+              type="button"
+              ng-click="$ctrl.save()"
+              ng-disabled="form.$invalid || $ctrl.isSaving">Guardar cambios</button>
+    </div>
+  </div>
+</form>

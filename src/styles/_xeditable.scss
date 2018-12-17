@@ -1,0 +1,111 @@
+$xeditable-min-width: 140px;
+$xeditable-buttons-width: 78px;
+
+table .editable-wrap:not(.editable-timepicker),
+table .editable-wrap:not(.editable-multiselect),
+table .editable-controls {
+  width: 100% !important;
+  min-width: $xeditable-min-width + $xeditable-buttons-width;
+
+  textarea,
+  select,
+  input {
+    width: calc(100% - #{$xeditable-buttons-width});
+    min-width: $xeditable-min-width;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  div[uib-timepicker] input {
+    min-width: inherit;
+  }
+}
+
+table .editable-controls {
+  .btn-group {
+    width: calc(100% - #{$xeditable-buttons-width}) !important;
+    .multiselect.btn {
+      width: 100%;
+    }
+  }
+}
+
+table .editable-controls.form-group .editable-input:not(.editable-has-buttons) {
+  width: 100% !important;
+}
+
+.editable {
+  border-bottom-style: dotted;
+  color: inherit;
+  border-color: #bbb;
+  border-width: 1px;
+
+  &.editable-empty {
+    color: $brand-danger;
+  }
+
+  &[e-form] {
+    border: none;
+  }
+}
+
+.editable-hide {
+  display: none;
+}
+
+.editable-click:hover,
+a.editable-click:hover {
+  color: $brand-secundary;
+  border-color: $brand-secundary;
+}
+
+.editable-wrap {
+  white-space: inherit;
+}
+
+.editable-timepicker {
+  padding: 0;
+  margin: 0;
+  max-height: 30px;
+  min-width: 190px;
+  max-width: 190px;
+
+  .editable-controls {
+    max-height: 30px;
+    min-width: 190px;
+    max-width: 190px;
+  }
+
+  div[uib-timepicker] {
+    display: inline-block;
+
+    table td {
+      display: inline-block;
+
+      input[type='text'] {
+        width: 50px;
+        height: 30px;
+      }
+    }
+  }
+}
+
+.dashboard-group .editable-wrap,
+.dashboard-group .editable-controls {
+  width: 100% !important;
+  textarea,
+  select,
+  input {
+    width: calc(100% - #{$xeditable-buttons-width});
+  }
+}
+
+.editable-buttons {
+  float: right;
+
+  button {
+    margin-left: 5px;
+  }
+}

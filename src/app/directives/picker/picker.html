@@ -1,0 +1,65 @@
+<div id="picker">
+  <!-- Icon/reload -->
+  <div class="picker-icon"
+       ng-class="{ 'with-subtitle': subtitleAttr }"
+       uib-tooltip="Reload"
+       tooltip-append-to-body="true"
+       ng-click="pickerReload()">
+    <i class="fa fa-fw"
+       ng-class="pickerIcon"></i>
+  </div>
+  <!-- /Icon/reload -->
+
+  <!-- Create button -->
+  <!-- <div ng-if="showCreateButton" class="picker-button" ng-class="{ 'with-subtitle': subtitleAttr }" uib-tooltip="Create" tooltip-append-to-body="true" ng-click="pickerOnCreate()">
+    <i class="fa fa-fw fa-plus"></i>
+  </div> -->
+  <!-- /Create button -->
+
+  <!-- List -->
+  <div class="picker-scroller">
+    <div class="picker-entry"
+         ng-repeat="item in pickerList | orderBy:'':reverse"
+         ng-class="{ 'active': item[idAttr] === itemSelected[idAttr] }">
+      <div class="picker-text">
+        <div class="picker-inner-text"
+             ng-click="setItem(item)"
+             title="{{ $index + 1 | number}} of {{ pickerList.length | number }}">
+          <!-- Main Title -->
+          <strong ng-if="titleAttr === '$index'">#{{ reverse ? pickerList.length - $index : $index + 1 | number }}</strong>
+          <strong ng-if="titleAttr !== '$index'">{{ item[titleAttr] | available }}</strong>
+          <!-- Status -->
+          <i class="picker-status fa fa-circle"
+             ng-class="item.status"></i>
+          <!-- Sub-Title -->
+          <span ng-if="subtitleAttr">{{ item[subtitleAttr] | date:'dd/MMM/yyyy' | available }}</span>
+        </div>
+
+        <!-- Options -->
+        <div ng-if="item[idAttr] === itemSelected[idAttr] && (showCommentsButton || showAttachmentButton || showDeleteButton || showReportButton)"
+      
+             class="picker-options">
+          <i ng-if="showReportButton"
+             title="Report"
+             ng-click="pickerOnReport({ $item: item })"
+             class="fa fa-fw fa-print"></i>
+          <i ng-if="showCommentsButton"
+             title="Comments"
+             ng-click="pickerOnComment({ $item: item })"
+             class="fa fa-fw fa-comment-o"></i>
+          <i ng-if="showAttachmentButton"
+             title="Attachments"
+             ng-click="pickerOnAttach({ $item: item })"
+             class="fa fa-fw fa-paperclip"></i>
+          <i ng-if="showDeleteButton"
+             title="Delete"
+             ng-click="pickerOnDelete({ $item: item })"
+             class="fa fa-fw fa-trash-o"></i>
+        </div>
+        <!-- /Options -->
+      </div>
+
+    </div>
+  </div>
+  <!-- /List -->
+</div>
