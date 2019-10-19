@@ -1,26 +1,32 @@
 .navbar {
   height: $navbar-height !important;
   min-height: 0px !important;
-  //max-height: $navbar-height !important;
-  background-color: #111;
-  // background: url(../images/navbar-bg.png);
-  // background-size: cover;
-  // background-position: center center;
+  background-color: #00214A;
   border: none;
-  border-bottom: 4px solid $footer-bg-color !important;
   margin-bottom: 0px !important;
   // margin-left: -1px;
+
+  border-top: 10px solid #0053BA !important;
+  border-bottom: 5px solid #0053BA !important;
+
+  .dropdown-toggle[aria-expanded='true'] {
+    color: darken(#F5C502, 10%) !important;
+  }
 
   &.navbar-fixed-top {
     border: none;
   }
 
   .navbar-right {
+    height: $navbar-height - 10px;
+    display: flex;
+    align-items: flex-end;
+
     & > li {
-      height: $navbar-height;
+      // height: $navbar-height;
 
       & > a {
-        height: $navbar-height;
+        // height: $navbar-height;
         line-height: $font-size-small * 2;
         font-size: $font-size-small * 1.1;
         color: #fefefe !important;
@@ -29,6 +35,7 @@
 
         &.active {
           //background-color: darken($brand-primary, 10%);
+          color: #F5C502 !important;
 
           .text-underline-effect {
             height: 5px;
@@ -55,7 +62,7 @@
         }
 
         &:hover {
-          color: lighten($brand-primary, 10%) !important;
+          color: #ccc !important;
           background-color: transparent !important;
         }
       }
@@ -72,9 +79,7 @@
     margin: 0;
     margin-top: 5px;
     padding: 5px 10px;
-    img {
-      height: 35px;
-    }
+    height: 100px;
   }
 
   .profile-pic {

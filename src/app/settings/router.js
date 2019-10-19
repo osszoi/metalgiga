@@ -5,6 +5,11 @@ angular.module('app').config(($stateProvider, $urlRouterProvider) => {
       template: '<home></home>',
       title: 'MetalGiga'
     })
+    .state('aboutus', {
+      url: '/aboutus',
+      template: '<aboutus></aboutus>',
+      title: 'MetalGiga'
+    })
     .state('products', {
       url: '/products',
       template: '<products></products>',
@@ -15,9 +20,9 @@ angular.module('app').config(($stateProvider, $urlRouterProvider) => {
       template: '<orders></orders>',
       title: 'MetalGiga'
     })
-    .state('contact', {
-      url: '/contact',
-      template: '<contact></contact>',
+    .state('location', {
+      url: '/location',
+      template: '<location></location>',
       title: 'MetalGiga'
     })
 

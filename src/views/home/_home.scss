@@ -15,6 +15,9 @@ body {
 }
 
 home {
+  img {
+    width: 100vw !important;
+  }
   & > div {
     overflow-x: hidden;
   }
