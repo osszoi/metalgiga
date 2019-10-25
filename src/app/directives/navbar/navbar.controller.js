@@ -6,7 +6,7 @@
       this.currentlyAt = 'home';
 
       $interval(() => {
-        let result = /^\#\!\/([a-z]+)$/.exec(window.location.hash);
+        let result = /^\#\!\/([a-z]+)/.exec(window.location.hash);
 
         this.currentlyAt = _.isNull(result) ? 'home' : result[1];
       }, 100);

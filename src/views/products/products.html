@@ -1,12 +1,18 @@
 <h2 class="padding-xs-left">
   <span ng-switch="$ctrl.category">
     <span ng-switch-when="exhibition-storage">Sistema de exhibición y almacenaje</span>
+    <span ng-switch-when="modular">Sistema constructivo modular</span>
+    <span ng-switch-when="sport">Sistemas deportivos</span>
+    <span ng-switch-when="dynamic-mechanic">Sistemas dinámicos o mecánicos</span>
+    <span ng-switch-when="urban">Sistemas urbanos</span>
+    <span ng-switch-when="storage">Tanques de almacenamiento</span>
   </span>
 </h2>
 
 <div class="container-fluid margin-bottom">
   <div class="row"
        ng-switch="$ctrl.category">
+    <!-- Category -->
     <div class="container-fluid"
          ng-switch-when="exhibition-storage">
       <div class="row">
@@ -29,5 +35,163 @@
         </div>
       </div>
     </div>
+    <!-- /Category -->
+
+    <!-- Category -->
+    <div class="container-fluid"
+         ng-switch-when="modular">
+      <div class="row">
+        <div class="col-sm-4 product">
+          <img class="product-image"
+               src="images/products/modular/1.png"
+               alt="">
+        </div>
+
+        <div class="col-sm-4 product">
+          <img class="product-image"
+               src="images/products/modular/3.png"
+               alt="">
+        </div>
+
+        <div class="col-sm-4 product">
+          <img class="product-image"
+               src="images/products/modular/2.png"
+               alt="">
+        </div>
+      </div>
+    </div>
+    <!-- /Category -->
+
+    <!-- Category -->
+    <div class="container-fluid"
+         ng-switch-when="sport">
+      <div class="row">
+        <div class="col-sm-2 product">
+          <img class="product-image"
+               src="images/products/sport/6.png"
+               alt="">
+        </div>
+
+        <div class="col-sm-2 product">
+          <img class="product-image"
+               src="images/products/sport/7.png"
+               alt="">
+        </div>
+
+        <div class="col-sm-2 product">
+          <img class="product-image"
+               src="images/products/sport/3.png"
+               alt="">
+        </div>
+
+        <div class="col-sm-2 product">
+          <img class="product-image"
+               src="images/products/sport/8.png"
+               alt="">
+        </div>
+
+        <div class="col-sm-2 product">
+          <img class="product-image"
+               src="images/products/sport/5.png"
+               alt="">
+        </div>
+
+        <div class="col-sm-2 product">
+          <img class="product-image"
+               src="images/products/sport/4.png"
+               alt="">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2 product">
+          <img class="product-image"
+               src="images/products/sport/1.png"
+               alt="">
+        </div>
+
+        <div class="col-sm-2 product">
+          <img class="product-image"
+               src="images/products/sport/2.png"
+               alt="">
+        </div>
+
+        <div class="col-sm-2 product">
+          <img class="product-image"
+               src="images/products/sport/10.png"
+               alt="">
+        </div>
+
+        <div class="col-sm-2 product">
+          <img class="product-image"
+               src="images/products/sport/9.png"
+               alt="">
+        </div>
+
+        <div class="col-sm-2 product">
+          <img class="product-image"
+               src="images/products/sport/11.png"
+               alt="">
+        </div>
+      </div>
+    </div>
+    <!-- /Category -->
+
+    <!-- Category -->
+    <div class="container-fluid"
+         ng-switch-when="dynamic-mechanic">
+      <div class="row">
+        <div class="col-sm-6 product">
+          <img class="product-image"
+               src="images/products/dynamic-mechanic/1.png"
+               alt="">
+        </div>
+
+        <div class="col-sm-6 product">
+          <img class="product-image"
+               src="images/products/dynamic-mechanic/2.png"
+               alt="">
+        </div>
+      </div>
+    </div>
+    <!-- /Category -->
+
+    <!-- Category -->
+    <div class="container-fluid"
+         ng-switch-when="urban">
+      <div class="row">
+        <div class="col-sm-4 product">
+          <img class="product-image"
+               src="images/products/urban/2.png"
+               alt="">
+        </div>
+
+        <div class="col-sm-4 product">
+          <img class="product-image"
+               src="images/products/urban/3.png"
+               alt="">
+        </div>
+
+        <div class="col-sm-4 product">
+          <img class="product-image"
+               src="images/products/urban/1.png"
+               alt="">
+        </div>
+      </div>
+    </div>
+    <!-- /Category -->
+
+    <!-- Category -->
+    <div class="container-fluid"
+         ng-switch-when="storage">
+      <div class="row">
+        <div class="col-sm-6 product centered">
+          <img class="product-image"
+               src="images/products/storage/1.png"
+               alt="">
+        </div>
+      </div>
+    </div>
+    <!-- /Category -->
   </div>
 </div>

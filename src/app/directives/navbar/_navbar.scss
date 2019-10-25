@@ -59,6 +59,14 @@
       .dropdown-menu {
         background-color: darken(#00214A, 5%);
 
+        li {
+          height: 40px;
+
+          a {
+            line-height: 35px;
+          }
+        }
+
         a {
           color: #ccc !important;
 
