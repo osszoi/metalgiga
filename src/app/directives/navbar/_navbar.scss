@@ -13,102 +13,70 @@
     color: darken(#F5C502, 10%) !important;
   }
 
-  &.navbar-fixed-top {
-    border: none;
+  .navbar-toggle {
+    color: #ccc;
+  }
+
+  .navbar-collapse {
+    @media (max-width: 768px) {
+      margin-top: 10px;
+    }
+  }
+
+  .nav .open > a {
+    background-color: darken(#00214A, 5%) !important;
   }
 
   .navbar-right {
-    height: $navbar-height - 10px;
-    display: flex;
-    align-items: flex-end;
+    background-color: #00214A;
+
+    @media (min-width: 768px) {
+      margin-top: 30px;
+    }
 
     & > li {
-      // height: $navbar-height;
-
-      & > a {
-        // height: $navbar-height;
-        line-height: $font-size-small * 2;
-        font-size: $font-size-small * 1.1;
-        color: #fefefe !important;
-
+      a {
+        color: #ccc;
         text-transform: uppercase;
+      }
 
-        &.active {
-          //background-color: darken($brand-primary, 10%);
-          color: #F5C502 !important;
+      &.active a {
+        color: #F5C502 !important;
+      }
 
-          .text-underline-effect {
-            height: 5px;
-            width: 100%;
-            border-radius: 5px;
-            //background-color: $brand-primary;
-            background: linear-gradient(
-              to right,
-              $brand-primary 10%,
-              lighten($brand-primary, 30%),
-              $brand-primary 90%
-            );
-          }
-        }
+      & a:focus {
+        background-color: transparent;
+      }
 
-        &:focus {
-          background-color: transparent;
-          outline: none;
-          border: none;
-        }
+      &[aria-expanded='true'] a {
+        color: $brand-primary !important;
+      }
 
-        &[aria-expanded='true'] {
-          color: $brand-primary !important;
-        }
+      &:not(.open):hover a {
+        background-color: transparent !important;
+      }
 
-        &:hover {
+      .dropdown-menu {
+        background-color: darken(#00214A, 5%);
+
+        a {
           color: #ccc !important;
-          background-color: transparent !important;
+
+          &:hover {
+            color: #F5C502 !important;
+          }
         }
       }
     }
   }
 
-  .navbar-header {
-    display: flex;
-    align-items: center;
-    margin-left: -($grid-gutter-width / 2);
-  }
-
   .navbar-brand {
     margin: 0;
-    margin-top: 5px;
     padding: 5px 10px;
-    height: 100px;
-  }
+    padding-left: 20px;
 
-  .profile-pic {
-    float: left;
-    display: inline-block;
-    margin-right: 8px;
-    height: 30px;
-    width: 30px;
-    margin-top: -5px;
-    margin-bottom: -5px;
+    img {
+      height: 100px;
+    }
   }
-
-  .container-fluid:first-child {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .languages {
-    background-color: red;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-}
-
-.navbar-aside {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }

@@ -18,8 +18,3 @@ root {
 div[ui-view] {
   min-height: 10% !important;
 }
-
-aboutus, home, products, proyects, services, location {
-  display: block;
-  margin-top: $navbar-height;
-}

@@ -11,7 +11,7 @@ angular.module('app').config(($stateProvider, $urlRouterProvider) => {
       title: 'MetalGiga'
     })
     .state('products', {
-      url: '/products',
+      url: '/products/:category',
       template: '<products></products>',
       title: 'MetalGiga'
     })

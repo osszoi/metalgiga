@@ -3,39 +3,6 @@
     constructor($interval) {
       super();
 
-      this.availableOptions = [
-        {
-          label: 'Inicio',
-          sref: 'home'
-        },
-        {
-          label: 'Quienes somos',
-          sref: 'aboutus'
-        },
-        {
-          label: 'Productos',
-          sref: 'products',
-          submenu: [
-            {
-              label: 'Sistema de exhibición y almacenaje',
-              sref: 'products({ category: \'exhibition-storage })\''
-            }
-          ]
-        },
-        {
-          label: 'Proyectos',
-          sref: 'proyects'
-        },
-        {
-          label: 'Servicios',
-          sref: 'services'
-        },
-        {
-          label: 'Ubicacion',
-          sref: 'location'
-        },
-      ]
-
       this.currentlyAt = 'home';
 
       $interval(() => {
@@ -51,6 +18,10 @@
 
     load() {
       //
+    }
+
+    isAt(section) {
+      return this.currentlyAt.toUpperCase().indexOf(section.toUpperCase()) > -1;
     }
   }
 
