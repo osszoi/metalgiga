@@ -1,70 +1,31 @@
-<div class="fw products">
-  <div class="bg-image"></div>
+<h2 class="padding-xs-left">
+  <span ng-switch="$ctrl.category">
+    <span ng-switch-when="exhibition-storage">Sistema de exhibición y almacenaje</span>
+  </span>
+</h2>
 
-  <div class="row margin-navbar-top">
-    <div class="col-sm-3">
+<div class="container-fluid margin-bottom">
+  <div class="row"
+       ng-switch="$ctrl.category">
+    <div class="container-fluid"
+         ng-switch-when="exhibition-storage">
       <div class="row">
-        <div
-          class="col-sm-12 pointer category font-metalgiga-3 font-lg"
-          ng-repeat-start="item in $ctrl.data"
-          ng-click="$ctrl.selectedCategory = item;"
-          ng-class="{ 'selected': item == $ctrl.selectedCategory }"
-        >
-          {{ item.name }}
-          <span class="pull-right">
-            <i
-              class="fa fa-fw"
-              ng-class="{ 'fa-caret-down': item != $ctrl.selectedCategory }"
-            ></i>
-          </span>
+        <div class="col-sm-4 product">
+          <img class="product-image"
+               src="images/products/exhibition-storage/3.png"
+               alt="">
         </div>
 
-        <div
-          class="col-sm-12 pointer subcategory font-metalgiga-5 font-lg"
-          ng-repeat="subitem in item.subcategories"
-          ng-click="$ctrl.selectedSubcategory = subitem;"
-          ng-class="{ 'selected': subitem == $ctrl.selectedSubcategory }"
-          ng-if="$ctrl.selectedCategory == item"
-          ng-repeat-end
-        >
-          {{ subitem.name }}
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="col-sm-9 padding-lr description"
-      ng-if="$ctrl.selectedSubcategory"
-    >
-      <h2 class="hug-top font-metalgiga-3">
-        {{ $ctrl.selectedSubcategory.name }}
-      </h2>
-      <div class="title-underline-primary"></div>
-
-      <div class="row">
-        <div class="col-sm-6">
-          <p class="text-justify">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero,
-            minima ducimus. Eaque temporibus, asperiores molestiae natus
-            similique quas. Esse, odit sit rem debitis atque sint quos ea vel
-            animi accusamus? Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Delectus, deleniti! Odio ipsum odit nam laboriosam labore sed,
-            asperiores nemo, totam quo blanditiis eligendi recusandae est
-            aliquid quis? Mollitia, quos assumenda. Lorem, ipsum dolor sit amet
-            consectetur adipisicing elit. Et accusantium beatae corporis amet
-            consequuntur reprehenderit. Doloremque sit, modi perferendis rerum
-            repellat libero ducimus omnis corrupti reprehenderit laborum
-            incidunt eligendi odio.
-          </p>
+        <div class="col-sm-4 product">
+          <img class="product-image"
+               src="images/products/exhibition-storage/2.png"
+               alt="">
         </div>
 
-        <div class="col-sm-6">
-          <img
-            src="https://st4.depositphotos.com/1000128/19923/v/600/depositphotos_199232382-stock-video-creative-abstract-heavy-metallurgical-industry.jpg"
-            alt=""
-            style="max-height: 450px; max-width: 100%;"
-            class="centered"
-          />
+        <div class="col-sm-4 product">
+          <img class="product-image"
+               src="images/products/exhibition-storage/1.png"
+               alt="">
         </div>
       </div>
     </div>
